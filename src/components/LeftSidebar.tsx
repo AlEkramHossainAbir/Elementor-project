@@ -15,7 +15,13 @@ const LeftSidebar = () =>{
                     <img src={collapseIcon} alt="collapse icon" />
                 </div>
             </Navbar>
-            <h2>Left Sidebar</h2>
+            <div className="left-sidebar-content">
+                {/* Sidebar content */}
+                <div className="header-text-container">
+                    <span className="header-text">Accordion</span>
+                </div>
+                <p>This is the left sidebar.</p>
+            </div>
         </div>
     )
 }
