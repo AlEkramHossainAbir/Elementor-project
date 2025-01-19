@@ -1,21 +1,22 @@
 import { Tabs, TabsProps } from "antd"
 import "./style.css"
+import CodeEditor from "../CodeEditor";
 
 const items: TabsProps['items'] = [
     {
       key: '1',
       label: 'HTML',
-      children: 'Content of Tab Pane 1',
+      children: <CodeEditor language="html" />,
     },
     {
       key: '2',
       label: 'CSS',
-      children: 'Content of Tab Pane 2',
+      children: <CodeEditor language="css" />,
     },
     {
       key: '3',
       label: 'JS',
-      children: 'Content of Tab Pane 3',
+      children: <CodeEditor language="javascript" />,
     },
     {
       key: '4',

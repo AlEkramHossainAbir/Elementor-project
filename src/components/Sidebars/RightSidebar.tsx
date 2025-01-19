@@ -36,9 +36,6 @@ const RightSidebar = () =>{
                     <div className="sub-text"></div>
                 </div>
                 <div className="block-elements">
-                <div className="main-text">How does it benefit a development team? </div>
-                    <div className="sub-text"></div>
-                </div>
                 <Collapse
         bordered={false}
         expandIconPosition="end"
@@ -76,6 +73,8 @@ const RightSidebar = () =>{
           </p>
         </Collapse.Panel>
       </Collapse>
+                </div>
+                
             </div>
         </div>
     )
