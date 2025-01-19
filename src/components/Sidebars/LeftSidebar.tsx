@@ -48,7 +48,7 @@ const LeftSidebar = () =>{
           <img src={editIcon} alt="Edit Icon" />
           <span>Content</span>
         </div>,
-          children: <Collapse items={collapseItems} defaultActiveKey={['1']} onChange={collapseOnChange} />,
+          children: <Collapse items={collapseItems} expandIconPosition="end" defaultActiveKey={['1']} onChange={collapseOnChange} />,
         },
         {
           key: '2',
