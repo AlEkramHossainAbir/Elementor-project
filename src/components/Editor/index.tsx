@@ -1,4 +1,6 @@
 import { Tabs, TabsProps } from "antd"
+import "./style.css"
+
 const items: TabsProps['items'] = [
     {
       key: '1',
@@ -26,7 +28,7 @@ const Editor = () =>{
         console.log(key);
       };
     return (
-        <div>
+        <div className="editor-container">
             
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
         </div>

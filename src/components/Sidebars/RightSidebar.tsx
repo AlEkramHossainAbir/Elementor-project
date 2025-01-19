@@ -1,10 +1,10 @@
-import Navbar from "./Navbar"
+import Navbar from "../Navbar"
 
-import desktopIcon from "./../assets/svgs/desktop.svg"
-import tabIcon from "./../assets/svgs/tab.svg"
-import mobileIcon from "./../assets/svgs/mobile.svg"
+import desktopIcon from "./../../assets/svgs/desktop.svg"
+import tabIcon from "./../../assets/svgs/tab.svg"
+import mobileIcon from "./../../assets/svgs/mobile.svg"
 import { Button } from "antd"
-import DropDownArrowIcon from "./../assets/svgs/DropDownArrow.svg"
+import DropDownArrowIcon from "./../../assets/svgs/DropDownArrow.svg"
 
 const RightSidebar = () =>{
     return (
