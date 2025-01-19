@@ -4,7 +4,6 @@ import Editor from "./components/Editor";
 import RightSidebar from "./components/Sidebars/RightSidebar";
 
 const App = () => {
-  
 
   return (
     <div className="app">

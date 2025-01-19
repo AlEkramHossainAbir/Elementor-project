@@ -22,7 +22,24 @@ const RightSidebar = () =>{
                 </Button>
                 </div>
             </Navbar>
-            <h1>Right Sidebar</h1>
+            <div className="right-sidebar-container">
+                <div className="block-elements">
+                    <div className="main-text">What is a design system?</div>
+                    <div className="sub-text">A design system is a collection of reusable components, patterns, and guidelines that are assembled to build a consistent and user-friendly user interface for a product.</div>
+                </div>
+                <div className="block-elements">
+                <div className="main-text">Why is a design system important?</div>
+                    <div className="sub-text"></div>
+                </div>
+                <div className="block-elements">
+                <div className="main-text"></div>
+                    <div className="sub-text"></div>
+                </div>
+                <div className="block-elements">
+                <div className="main-text"></div>
+                    <div className="sub-text"></div>
+                </div>
+            </div>
         </div>
     )
 }

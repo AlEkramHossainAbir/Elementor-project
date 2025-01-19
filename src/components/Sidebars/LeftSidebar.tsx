@@ -5,10 +5,42 @@ import collapseIcon from "./../../assets/svgs/collapse.svg"
 import editIcon from "./../../assets/svgs/edit-pen.svg"
 import settingIcon from "./../../assets/svgs/setting-wheel.svg"
 import bucketIcon from "./../../assets/svgs/bucket.svg"
-import { Tabs, TabsProps } from "antd"
+import { Collapse, CollapseProps, Tabs, TabsProps } from "antd"
 import "./style.css"
 
 const LeftSidebar = () =>{
+
+  const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+  const onChange = (key: string) => {
+    console.log(key);
+  };
+
+  const collapseOnChange = (key: string | string[]) => {
+    console.log(key);
+  };
+
+  const collapseItems: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'This is panel header 1',
+      children: <p>{text}</p>,
+    },
+    {
+      key: '2',
+      label: 'This is panel header 2',
+      children: <p>{text}</p>,
+    },
+    {
+      key: '3',
+      label: 'This is panel header 3',
+      children: <p>{text}</p>,
+    },
+  ];
     const items: TabsProps['items'] = [
         {
           key: '1',
@@ -16,7 +48,7 @@ const LeftSidebar = () =>{
           <img src={editIcon} alt="Edit Icon" />
           <span>Content</span>
         </div>,
-          children: 'Content of Tab Pane 1',
+          children: <Collapse items={collapseItems} defaultActiveKey={['1']} onChange={collapseOnChange} />,
         },
         {
           key: '2',
@@ -35,9 +67,7 @@ const LeftSidebar = () =>{
           children: 'Content of Tab Pane 3',
         },
       ];
-      const onChange = (key: string) => {
-        console.log(key);
-      };
+    
     return (
         <div className="left-sidebar">
             <Navbar>
@@ -49,7 +79,7 @@ const LeftSidebar = () =>{
                     <img src={collapseIcon} alt="collapse icon" />
                 </div>
             </Navbar>
-            <div className="left-sidebar-content">
+            <div className="left-sidebar-container">
                 {/* Sidebar content */}
                 <div className="header-text-container">
                     <span className="header-text">Accordion</span>
