@@ -2,7 +2,29 @@ import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 
 const CodeEditor = ({language}) => {
-  const [code, setCode] = useState("// Start coding here...");
+  const [code, setCode] = useState(`
+  // Imports
+  import mongoose, { Schema } from 'mongoose'
+  
+  // Collection name
+  export const collection = 'Product';
+  
+  // Schema
+  const schema = new Schema({
+    name: {
+      type: String,
+      required: true
+    },
+  
+    description: {
+      type: String
+    }
+  }, {timestamps: true})
+  
+  // Model
+  export default mongoose.model(collection, schema, collection)
+  
+  `);
 
   const handleEditorChange = (value) => {
     setCode(value);
@@ -13,7 +35,6 @@ const CodeEditor = ({language}) => {
       <Editor
         height="100%"
         width="800px"
-        defaultLanguage={language}
         language={language}
         defaultValue="// Start coding here..."
         value={code}
