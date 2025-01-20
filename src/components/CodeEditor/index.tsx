@@ -1,30 +1,8 @@
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 
-const CodeEditor = ({language}) => {
-  const [code, setCode] = useState(`
-  // Imports
-  import mongoose, { Schema } from 'mongoose'
-  
-  // Collection name
-  export const collection = 'Product';
-  
-  // Schema
-  const schema = new Schema({
-    name: {
-      type: String,
-      required: true
-    },
-  
-    description: {
-      type: String
-    }
-  }, {timestamps: true})
-  
-  // Model
-  export default mongoose.model(collection, schema, collection)
-  
-  `);
+const CodeEditor = ({language,codeValue}) => {
+  const [code, setCode] = useState(codeValue);
 
   const handleEditorChange = (value) => {
     setCode(value);
