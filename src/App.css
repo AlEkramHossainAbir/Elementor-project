@@ -52,3 +52,13 @@
     }
   }
 }
+.splitter{
+  display: flex;
+  background-color: black;
+}
+.gutter-horizontal{
+  cursor: col-resize;
+  &:hover{
+    background-color: #2e2e2e;
+  }
+}

@@ -15,7 +15,6 @@ console.log(setCode)
     <div style={{ height: "1032px", backgroundColor:"#000 " }}>
       <Editor
         height="100%"
-        width="800px"
         language={language}
         defaultValue="// Start coding here..."
         value={code}
