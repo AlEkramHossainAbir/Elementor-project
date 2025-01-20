@@ -56,13 +56,14 @@ background-color: white;
     }
     }
     .ant-collapse-expand-icon {
-        width: auto;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 }
-
+.ant-collapse-expand-icon{
+  width: auto;
+}
 .right-sidebar-container {
     height: 1032px;
     background-color: #E7E7E7;
@@ -125,7 +126,6 @@ background-color: white;
   }
   
   .custom-collapse .ant-collapse-expand-icon {
-    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;

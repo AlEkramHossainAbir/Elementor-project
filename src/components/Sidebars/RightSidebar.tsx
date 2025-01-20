@@ -3,10 +3,59 @@ import Navbar from "../Navbar"
 import desktopIcon from "./../../assets/svgs/desktop.svg"
 import tabIcon from "./../../assets/svgs/tab.svg"
 import mobileIcon from "./../../assets/svgs/mobile.svg"
-import { Button, Collapse } from "antd"
+import { Button, Collapse, CollapseProps } from "antd"
 import DropDownArrowIcon from "./../../assets/svgs/DropDownArrow.svg"
 
 const RightSidebar = () =>{
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
+  
+  const items: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'What is a design system?',
+      children:  <p>
+      A design system is a collection of reusable components, patterns,
+      and guidelines that are assembled to build a consistent and
+      user-friendly user interface for a product.
+    </p>,
+    },
+    {
+      key: '2',
+      label: 'Why is a design system important?',
+      children: <p>
+      A design system is a collection of reusable components, patterns,
+      and guidelines that are assembled to build a consistent and
+      user-friendly user interface for a product.
+    </p> ,
+    },
+    {
+      key: '3',
+      label: 'Are design systems only for large organizations?',
+      children:  <p>
+      No, design systems are beneficial for teams of all sizes, as they
+      ensure consistency and efficiency.
+    </p>,
+    },
+    {
+      key: '4',
+      label: 'How does it benefit a development team?',
+      children:  <p>
+      It reduces redundancy, encourages collaboration between designers
+      and developers, and accelerates project timelines.
+    </p>,
+    },
+    {
+      key: '5',
+      label: 'How do you implement a design system?',
+      children:  <p>
+      By defining reusable components, establishing guidelines, and
+      ensuring adoption across all teams in the project.
+    </p>,
+    },
+  ];
+
     return (
         <div className="right-sidebar">
              <Navbar>
@@ -23,56 +72,8 @@ const RightSidebar = () =>{
                 </div>
             </Navbar>
             <div className="right-sidebar-container">
-                <div className="block-elements">
-                    <div className="main-text">What is a design system?</div>
-                    <div className="sub-text">A design system is a collection of reusable components, patterns, and guidelines that are assembled to build a consistent and user-friendly user interface for a product.</div>
-                </div>
-                <div className="block-elements">
-                <div className="main-text">Why is a design system important?</div>
-                    <div className="sub-text"></div>
-                </div>
-                <div className="block-elements">
-                <div className="main-text">Are design systems only for large organizations?</div>
-                    <div className="sub-text"></div>
-                </div>
-                <div className="block-elements">
-                <Collapse
-        bordered={false}
-        expandIconPosition="end"
-        className="custom-collapse"
-      >
-        <Collapse.Panel header="What is a design system?" key="1">
-          <p>
-            A design system is a collection of reusable components, patterns,
-            and guidelines that are assembled to build a consistent and
-            user-friendly user interface for a product.
-          </p>
-        </Collapse.Panel>
-        <Collapse.Panel header="Why is a design system important?" key="2">
-          <p>
-            A design system provides consistency, improves scalability, and
-            speeds up the development process by reusing components and styles.
-          </p>
-        </Collapse.Panel>
-        <Collapse.Panel header="Are design systems only for large organizations?" key="3">
-          <p>
-            No, design systems are beneficial for teams of all sizes, as they
-            ensure consistency and efficiency.
-          </p>
-        </Collapse.Panel>
-        <Collapse.Panel header="How does it benefit a development team?" key="4">
-          <p>
-            It reduces redundancy, encourages collaboration between designers
-            and developers, and accelerates project timelines.
-          </p>
-        </Collapse.Panel>
-        <Collapse.Panel header="How do you implement a design system?" key="5">
-          <p>
-            By defining reusable components, establishing guidelines, and
-            ensuring adoption across all teams in the project.
-          </p>
-        </Collapse.Panel>
-      </Collapse>
+                <div className="block-elements custom-collapse">
+                  <Collapse items={items} expandIconPosition="end" defaultActiveKey={['1']} onChange={onChange} />,
                 </div>
                 
             </div>

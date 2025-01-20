@@ -9,7 +9,7 @@ const CodeEditor = ({language,codeValue}) => {
   };
 
   return (
-    <div style={{ height: "90vh", border: "1px solid #ddd" }}>
+    <div style={{ height: "1032px", backgroundColor:"#000 " }}>
       <Editor
         height="100%"
         width="800px"
