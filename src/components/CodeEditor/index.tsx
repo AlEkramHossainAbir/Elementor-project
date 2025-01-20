@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Editor from "@monaco-editor/react";
-
-const CodeEditor = ({language,codeValue}) => {
+interface CodeEditorProps {
+  language: string;
+  codeValue: string;
+}
+const CodeEditor: React.FC<CodeEditorProps>  = ({language,codeValue}) => {
   const [code, setCode] = useState(codeValue);
 
-  const handleEditorChange = (value) => {
-    setCode(value);
-  };
-
+  // const handleEditorChange = (value) => {
+  //   setCode(value);
+  // };
+console.log(setCode)
   return (
     <div style={{ height: "1032px", backgroundColor:"#000 " }}>
       <Editor
@@ -17,7 +20,7 @@ const CodeEditor = ({language,codeValue}) => {
         defaultValue="// Start coding here..."
         value={code}
         theme="vs-dark" // You can also use "light" theme
-        onChange={handleEditorChange}
+        onChange={()=>{}}
         options={{
           fontSize: 14,
           minimap: { enabled: true }, // Toggle minimap
