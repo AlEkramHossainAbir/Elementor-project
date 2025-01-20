@@ -46,7 +46,7 @@ const LeftSidebar = () =>{
           key: '1',
           label: <div className="controller-wrapper">
           <img src={editIcon} alt="Edit Icon" />
-          <span>Content</span>
+          <span className="controller-level">Content</span>
         </div>,
           children: <Collapse items={collapseItems} expandIconPosition="end" defaultActiveKey={['1']} onChange={collapseOnChange} />,
         },
@@ -54,7 +54,7 @@ const LeftSidebar = () =>{
           key: '2',
           label: <div className="controller-wrapper">
             <img src={bucketIcon} alt="Bucket Icon" />
-            <span>Style</span>
+            <span className="controller-level">Style</span>
           </div>,
           children: 'Content of Tab Pane 2',
         },
@@ -62,7 +62,7 @@ const LeftSidebar = () =>{
           key: '3',
           label: <div className="controller-wrapper">
           <img src={settingIcon} alt="Settings Icon" />
-          <span>Advanced</span>
+          <span className="controller-level">Advanced</span>
         </div>,
           children: 'Content of Tab Pane 3',
         },

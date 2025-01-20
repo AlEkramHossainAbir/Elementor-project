@@ -5,6 +5,8 @@ import tabIcon from "./../../assets/svgs/tab.svg"
 import mobileIcon from "./../../assets/svgs/mobile.svg"
 import { Button, Collapse, CollapseProps } from "antd"
 import DropDownArrowIcon from "./../../assets/svgs/DropDownArrow.svg"
+import plusIcon from "./../../assets/svgs/plus_icon.svg"
+import minusIcon from "./../../assets/svgs/minus_icon.svg"
 
 const RightSidebar = () =>{
   const onChange = (key: string | string[]) => {
@@ -73,7 +75,10 @@ const RightSidebar = () =>{
             </Navbar>
             <div className="right-sidebar-container">
                 <div className="block-elements custom-collapse">
-                  <Collapse items={items} expandIconPosition="end" defaultActiveKey={['1']} onChange={onChange} />,
+                  <Collapse items={items} expandIconPosition="end" bordered={false} defaultActiveKey={['1']} onChange={onChange} expandIcon={(panelProps)=>{
+                    console.log(panelProps)
+                    return panelProps.isActive ? <img src={minusIcon} alt="minus icon" /> : <img src={plusIcon} alt="plus icon" />
+                  }} />,
                 </div>
                 
             </div>

@@ -28,13 +28,20 @@ background-color: white;
     margin: 0;
     height: 48px;
     .ant-tabs-nav-list{
+      border: 1px solid #DBDBDB;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
         background-color: #F4F4F4;
         .ant-tabs-tab:first-child{
-        margin-left: 20px;
+          border-right: 1px solid #DBDBDB;
+        }
+        .ant-tabs-tab:nth-child(2n){
+          border-right: 1px solid #DBDBDB;
         }
         .ant-tabs-tab{
+          margin: 0;
+          flex: 1;
         width: auto;
-        margin-right: 16px;
+        padding: 16px;
         .ant-tabs-tab-btn{
         color: #0C0D0E;
         font-family: Roboto;
@@ -46,6 +53,7 @@ background-color: white;
         }
     }
     .ant-tabs-tab-active{
+      background-color: #FFF;
         .ant-tabs-tab-btn{
         color: #0C0D0E;
         }
@@ -59,6 +67,14 @@ background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+.controller-level{
+  color: #0C0D0E;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
       }
 }
 .ant-collapse-expand-icon{
@@ -104,7 +120,6 @@ background-color: white;
   display: flex;
   flex-direction: column;
   gap: 28px ;
-  border: none;
 }
 .custom-collapse .ant-collapse-header {
     font-size: 16px;
@@ -125,10 +140,11 @@ background-color: white;
   
   .custom-collapse .ant-collapse-content {
     background-color: #ffffff;
-    border: none;
   }
   
   .custom-collapse .ant-collapse-content-box {
+    background-color: #fff;
+    padding-top: 0px !important;
     font-size: 14px;
     color: #475569;
   }
