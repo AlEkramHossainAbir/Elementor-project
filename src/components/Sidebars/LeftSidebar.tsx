@@ -53,6 +53,8 @@ const LeftSidebar = () => {
             description="Are you sure to delete this task?"
             okText="Yes"
             cancelText="No"
+            onConfirm={(e) => e?.stopPropagation()}
+            onCancel={(e) => e?.stopPropagation()}
             className="controller-custom-popconfirm"
           >
             <img
