@@ -75,10 +75,7 @@ const RightSidebar = () =>{
             </Navbar>
             <div className="right-sidebar-container">
                 <div className="block-elements custom-collapse">
-                  <Collapse items={items} expandIconPosition="end" bordered={false} defaultActiveKey={['1']} onChange={onChange} expandIcon={(panelProps)=>{
-                    console.log(panelProps)
-                    return panelProps.isActive ? <img src={minusIcon} alt="minus icon" /> : <img src={plusIcon} alt="plus icon" />
-                  }} />,
+                  <Collapse items={items} expandIconPosition="end" bordered={false} defaultActiveKey={['1']} onChange={onChange} expandIcon={(panelProps)=>panelProps.isActive ? <img src={minusIcon} alt="minus icon" /> : <img src={plusIcon} alt="plus icon" />} />,
                 </div>
                 
             </div>

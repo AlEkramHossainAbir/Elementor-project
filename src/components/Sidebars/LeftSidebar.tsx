@@ -5,6 +5,9 @@ import collapseIcon from "./../../assets/svgs/collapse.svg"
 import editIcon from "./../../assets/svgs/edit-pen.svg"
 import settingIcon from "./../../assets/svgs/setting-wheel.svg"
 import bucketIcon from "./../../assets/svgs/bucket.svg"
+import chevronUp from "./../../assets/svgs/chevronUp.svg"
+import chevronDown from "./../../assets/svgs/chevronDown.svg"
+import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg"
 import { Collapse, CollapseProps, Tabs, TabsProps } from "antd"
 import "./style.css"
 
@@ -27,20 +30,36 @@ const LeftSidebar = () =>{
   const collapseItems: CollapseProps['items'] = [
     {
       key: '1',
-      label: 'This is panel header 1',
+      label: 'Control 1',
       children: <p>{text}</p>,
     },
     {
       key: '2',
-      label: 'This is panel header 2',
+      label: 'Control 2',
       children: <p>{text}</p>,
     },
     {
       key: '3',
-      label: 'This is panel header 3',
+      label: 'Control 3',
       children: <p>{text}</p>,
     },
   ];
+  const customProps: CollapseProps ={
+    className:"custom-controller-collapse",
+    expandIcon:(panelProps)=>{
+      return (
+        <div className="collapse-controller-expand-icon">
+          <img src={cancelCrossIcon} alt="cancel icon" className="delete-icon" onClick={(e)=>{
+            e.stopPropagation()
+          }} />
+         {
+          panelProps.isActive ? <img src={chevronUp} alt="chevron up" /> : <img src={chevronDown} alt="Chevron down" />
+        }
+        </div>
+       
+      )
+    }
+  }
     const items: TabsProps['items'] = [
         {
           key: '1',
@@ -48,7 +67,7 @@ const LeftSidebar = () =>{
           <img src={editIcon} alt="Edit Icon" />
           <span className="controller-level">Content</span>
         </div>,
-          children: <Collapse items={collapseItems} expandIconPosition="end" defaultActiveKey={['1']} onChange={collapseOnChange} />,
+          children: <Collapse items={collapseItems} expandIconPosition="end" defaultActiveKey={['1']} onChange={collapseOnChange} {...customProps} />,
         },
         {
           key: '2',
