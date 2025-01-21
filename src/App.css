@@ -1,57 +1,57 @@
-.app{
+.app {
   display: flex;
-  .left-container{
+  .left-container {
     width: auto;
-    .left-sidebar{
+    .left-sidebar {
       width: 300px;
     }
   }
-  .navbar{
+  .navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 48px;
     background-color: black;
-    color: white; 
-    .wordpress-logo{
+    color: white;
+    .wordpress-logo {
       height: 48px;
       width: 46px;
     }
-    .extra-icons{
+    .extra-icons {
       display: flex;
       justify-content: end;
-      img{
+      img {
         width: 34px;
         cursor: pointer;
       }
-      .save-btn,.dropdown-btn{
+      .save-btn,
+      .dropdown-btn {
         height: 48px;
         border-radius: 1px;
         border: none;
-        background-color: #F0ABFE;
+        background-color: #f0abfe;
       }
-      .save-btn{
+      .save-btn {
         width: 118px;
         border-right: 1px solid black;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         font-weight: 500;
         font-size: 13px;
         color: #101010;
-        
       }
-      .dropdown-btn{
-        width: 48px;;
+      .dropdown-btn {
+        width: 48px;
       }
-    } 
-    .responsive-icons{
-        img{
-          width: 20px;
-          margin-right: 20px;
-          cursor: pointer;
-        }
+    }
+    .responsive-icons {
+      img {
+        width: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+      }
     }
   }
 }
-.splitter{
+.splitter {
   background-color: black;
 }

@@ -1,194 +1,193 @@
-.controller-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    img{
-      height: 16px;
-      width: 16px;
-    }
+.controller-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    height: 16px;
+    width: 16px;
   }
-.left-sidebar-container{
-height: 1032px;
-background-color: white;
-.header-text-container{
+}
+.left-sidebar-container {
+  height: 1032px;
+  background-color: white;
+  .header-text-container {
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    .header-text{
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 500;
-    color: #141414;
-    text-align: center;
-
+    .header-text {
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 500;
+      color: #141414;
+      text-align: center;
     }
-}
-.ant-tabs .ant-tabs-nav{
+  }
+  .ant-tabs .ant-tabs-nav {
     margin: 0;
     height: 48px;
-    .ant-tabs-nav-list{
-      border: 1px solid #DBDBDB;
+    .ant-tabs-nav-list {
+      width: 100%;
+      border: 1px solid #dbdbdb;
       box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-        background-color: #F4F4F4;
-        .ant-tabs-tab:first-child{
-          border-right: 1px solid #DBDBDB;
-        }
-        .ant-tabs-tab:nth-child(2n){
-          border-right: 1px solid #DBDBDB;
-        }
-        .ant-tabs-tab{
-          margin: 0;
-          flex: 1;
+      background-color: #f4f4f4;
+      .ant-tabs-tab:first-child {
+        border-right: 1px solid #dbdbdb;
+      }
+      .ant-tabs-tab:nth-child(2n) {
+        border-right: 1px solid #dbdbdb;
+      }
+      .ant-tabs-tab {
+        margin: 0;
+        flex: 1;
         width: auto;
         padding: 16px;
-        .ant-tabs-tab-btn{
-        color: #0C0D0E;
+        .ant-tabs-tab-btn {
+          width: 100%;
+          color: #0c0d0e;
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          text-align: left;
+        }
+      }
+      .ant-tabs-tab-active {
+        background-color: #fff;
+        .ant-tabs-tab-btn {
+          color: #0c0d0e;
+        }
+      }
+      .ant-tabs-ink-bar {
+        background-color: #0c0d0e;
+      }
+    }
+  }
+  .ant-collapse-expand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .controller-level {
+    color: #0c0d0e;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+  }
+  .custom-controller-collapse {
+    border-radius: 0px;
+    border: none;
+    .ant-collapse-item {
+      border-bottom: 1px solid #dbdbdb;
+      .collapse-controller-expand-icon {
+        .delete-icon {
+          margin-right: 10px;
+        }
+      }
+      .ant-collapse-header-text {
+        color: #0c0d0e;
         font-family: Roboto;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 20px;
-        text-align: left;
-
-        }
-    }
-    .ant-tabs-tab-active{
-      background-color: #FFF;
-        .ant-tabs-tab-btn{
-        color: #0C0D0E;
-        }
-    }
-    .ant-tabs-ink-bar{
-        background-color: #0C0D0E;
-    }
-    }
-    }
-    .ant-collapse-expand-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
       }
-.controller-level{
-  color: #0C0D0E;
-  font-family: Roboto;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 600;
-  text-align: center;
+      .ant-collapse-header {
+        background-color: #fff;
       }
-      .custom-controller-collapse{
-        border-radius: 0px;
+      .ant-collapse-content {
         border: none;
-        .ant-collapse-item{
-          border-bottom: 1px solid #DBDBDB;
-          .collapse-controller-expand-icon {
-            .delete-icon{
-              margin-right: 10px;
-            }
-           
-          }
-          .ant-collapse-header-text{
-            color: #0C0D0E;
-            font-family: Roboto;
-            font-size: 14px;
-            font-weight: 600;
-          }
-          .ant-collapse-header{
-            background-color: #FFF;
-          }
-        .ant-collapse-content{
-          border: none;
-          .ant-collapse-content-box{
-            padding-top: 0px;
-          }
-        }
+        .ant-collapse-content-box {
+          padding-top: 0px;
         }
       }
+    }
+  }
 }
-.ant-collapse-expand-icon{
+.ant-collapse-expand-icon {
   width: auto;
 }
 .right-sidebar-container {
-    height: 1032px;
-    background-color: #E7E7E7;
-    background-image: linear-gradient(to right, #ddd 2px, transparent 1px),
-                      linear-gradient(to bottom, #ddd 2px, transparent 1px);
-    background-size: 40px 40px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 28px;
+  height: 1032px;
+  background-color: #e7e7e7;
+  background-image: linear-gradient(to right, #ddd 2px, transparent 1px),
+    linear-gradient(to bottom, #ddd 2px, transparent 1px);
+  background-size: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
 }
 
 .block-elements {
-    margin-top: 40px;
-    border-bottom: 1px solid #CBD5E1;
-    padding: 24px 24px 28px 24px;
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .main-text{
-        color:  #0F172A;
-        font-family: Inter;
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 12px;
-    }
-    .sub-text{
-        color:  #475569;
-        font-family: Inter;
-        font-size: 16px;
-        font-weight: 400;
-
-    }
-}
-.custom-collapse .ant-collapse{
+  margin-top: 40px;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 24px 24px 28px 24px;
+  width: 75%;
   display: flex;
   flex-direction: column;
-  gap: 28px ;
+  align-items: center;
+  justify-content: center;
+  .main-text {
+    color: #0f172a;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .sub-text {
+    color: #475569;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+.custom-collapse .ant-collapse {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 .custom-collapse .ant-collapse-header {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #fff;
-    border-radius: 0px !important;
-    height: 80px;
-    display: flex;
-    align-items: center !important;
-    padding: 24px;
-    &:first-child(){
-      border-radius: 0px;
-    }
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 0px !important;
+  height: 80px;
+  display: flex;
+  align-items: center !important;
+  padding: 24px;
+  &:first-child() {
+    border-radius: 0px;
   }
+}
 .custom-collapse .ant-collapse-item-active .ant-collapse-header {
   background-color: #fff !important;
 }
-  
-  .custom-collapse .ant-collapse-content {
-    background-color: #ffffff;
-  }
-  
-  .custom-collapse .ant-collapse-content-box {
-    background-color: #fff;
-    padding-top: 0px !important;
-    font-size: 14px;
-    color: #475569;
-  }
-  
-  .custom-collapse > .ant-collapse-item {
-    margin-bottom: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-  }
-  
-  .custom-collapse .ant-collapse-expand-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .custom-collapse .ant-collapse-header[aria-expanded="true"] {
-    background-color: #f3f4f6;
-  }
+
+.custom-collapse .ant-collapse-content {
+  background-color: #ffffff;
+}
+
+.custom-collapse .ant-collapse-content-box {
+  background-color: #fff;
+  padding-top: 0px !important;
+  font-size: 14px;
+  color: #475569;
+}
+
+.custom-collapse > .ant-collapse-item {
+  margin-bottom: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.custom-collapse .ant-collapse-expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-collapse .ant-collapse-header[aria-expanded="true"] {
+  background-color: #f3f4f6;
+}
