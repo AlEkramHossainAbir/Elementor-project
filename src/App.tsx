@@ -2,7 +2,6 @@ import "./App.css"; // Add your styling here
 import LeftSidebar from "./components/Sidebars/LeftSidebar";
 import Editor from "./components/Editor";
 import RightSidebar from "./components/Sidebars/RightSidebar";
-import Split from "react-split";
 import { Splitter } from "antd";
 
 const App = () => {
