@@ -5,12 +5,9 @@ interface CodeEditorProps {
   codeValue: string;
 }
 const CodeEditor: React.FC<CodeEditorProps> = ({ language, codeValue }) => {
-  const [code, setCode] = useState(codeValue);
+  const [code, setCode] = useState<string>(codeValue);
 
-  // const handleEditorChange = (value) => {
-  //   setCode(value);
-  // };
-  console.log(setCode);
+
   return (
     <div style={{ height: "1032px", backgroundColor: "#000 " }}>
       <Editor
@@ -19,7 +16,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language, codeValue }) => {
         defaultValue="// Start coding here..."
         value={code}
         theme="vs-dark" // You can also use "light" theme
-        onChange={() => {}}
+        onChange={(val) => setCode(val|| '')}
         options={{
           fontSize: 14,
           minimap: { enabled: true }, // Toggle minimap

@@ -1,0 +1,1862 @@
+{
+    "Control_Text": {
+        "type": "/Elementor/Controls_Manager::TEXT",
+        "control_name": "Text Control",
+        "has_selector": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "input_type",
+                "type": "select",
+                "default": "text",
+                "options": {
+                    "text": "Text",
+                    "number": "Number",
+                    "email": "Email",
+                    "password": "Password"
+                }
+            },
+            {
+                "name": "placeholder",
+                "type": "text",
+                "default": ""
+            },
+            {
+                "name": "title",
+                "type": "text"
+            },
+            {
+                "name": "classes",
+                "type": "text"
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Number": {
+        "type": "/Elementor/Controls_Manager::NUMBER",
+        "control_name": "Number Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "placeholder",
+                "type": "text",
+                "default": ""
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "min",
+                "type": "number"
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "default": ""
+            },
+            {
+                "name": "step",
+                "type": "number",
+                "default": ""
+            },
+            {
+                "name": "title",
+                "type": "text"
+            },
+            {
+                "name": "default",
+                "type": "number"
+            }
+        ]
+    },
+    "Control_Textarea": {
+        "type": "/Elementor/Controls_Manager::TEXTAREA",
+        "control_name": "Textarea Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "placeholder",
+                "type": "text",
+                "default": ""
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "rows",
+                "type": "number",
+                "default": 5
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Wysiwyg": {
+        "type": "/Elementor/Controls_Manager::WYSIWYG",
+        "control_name": "WYSIWYG Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Code": {
+        "type": "/Elementor/Controls_Manager::CODE",
+        "control_name": "Code Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "language",
+                "type": "text",
+                "default": "html"
+            },
+            {
+                "name": "rows",
+                "type": "number",
+                "default": 10
+            },
+            {
+                "name": "default",
+                "type": "textarea"
+            }
+        ]
+    },
+    "Control_Hidden": {
+        "type": "/Elementor/Controls_Manager::HIDDEN",
+        "control_name": "Hidden Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Switcher": {
+        "type": "/Elementor/Controls_Manager::SWITCHER",
+        "control_name": "Switcher Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "switcher"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "label_on",
+                "type": "text",
+                "default": "Yes"
+            },
+            {
+                "name": "label_off",
+                "type": "text",
+                "default": "No"
+            },
+            {
+                "name": "return_value",
+                "type": "text",
+                "default": "yes"
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Popover_Toggle": {
+        "type": "/Elementor/Controls_Manager::POPOVER_TOGGLE",
+        "control_name": "Popover Toggle Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "popover_toggle"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "label_on",
+                "type": "text",
+                "default": "Yes"
+            },
+            {
+                "name": "label_off",
+                "type": "text",
+                "default": "No"
+            },
+            {
+                "name": "return_value",
+                "type": "text",
+                "default": "yes"
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Select": {
+        "type": "/Elementor/Controls_Manager::SELECT",
+        "control_name": "Select Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "select"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "options",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "text"
+                    },
+                    {
+                        "name": "value",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Select2": {
+        "type": "/Elementor/Controls_Manager::SELECT2",
+        "control_name": "Select2 Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "select2"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "options",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "text"
+                    },
+                    {
+                        "name": "value",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "multiple",
+                "type": "switch",
+                "default": false
+            }
+        ]
+    },
+    "Control_Color": {
+        "type": "/Elementor/Controls_Manager::COLOR",
+        "control_name": "Color Control",
+        "has_selectors": true,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "color"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "alpha",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "default",
+                "type": "text"
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Font": {
+        "type": "/Elementor/Controls_Manager::FONT",
+        "control_name": "Font Control",
+        "has_selectors": true,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "font"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "options",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "font_name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "family_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "default",
+                "type": "text"
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Date_Time": {
+        "type": "/Elementor/Controls_Manager::DATE_TIME",
+        "control_name": "Date Time Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "date_time"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Gallery": {
+        "type": "/Elementor/Controls_Manager::GALLERY",
+        "control_name": "Gallery Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "gallery"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            }
+        ]
+    },
+    "Control_Repeater": {
+        "type": "/Elementor/Controls_Manager::REPEATER",
+        "control_name": "Repeater Control",
+        "has_selectors": false,
+        "disabled": true,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "repeater"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "fields",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "title",
+                        "type": "text"
+                    },
+                    {
+                        "name": "content",
+                        "type": "wysiwyg"
+                    }
+                ]
+            },
+            {
+                "name": "title_field",
+                "type": "text"
+            },
+            {
+                "name": "prevent_empty",
+                "type": "switch",
+                "default": true
+            }
+        ]
+    },
+    "Control_Animation": {
+        "type": "/Elementor/Controls_Manager::ANIMATION",
+        "control_name": "Entrance Animation Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "animation"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Exit_Animation": {
+        "type": "/Elementor/Controls_Manager::EXIT_ANIMATION",
+        "control_name": "Exit Animation Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "exit_animation"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Hover_Animation": {
+        "type": "/Elementor/Controls_Manager::HOVER_ANIMATION",
+        "control_name": "Hover Animation Control",
+        "has_selectors": false,
+        "control_category": "Data Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "hover_animation"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "default",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_URL": {
+        "type": "/Elementor/Controls_Manager::URL",
+        "control_name": "URL Control",
+        "has_selectors": false,
+        "control_category": "MultiValue Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "url"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "placeholder",
+                "type": "text",
+                "default": "Paste URL or type"
+            },
+            {
+                "name": "autocomplete",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "options",
+                "type": "array",
+                "default": [
+                    "url",
+                    "is_external",
+                    "nofollow",
+                    "custom_attributes"
+                ]
+            }
+        ]
+    },
+    "Control_Media": {
+        "type": "/Elementor/Controls_Manager::MEDIA",
+        "control_name": "Media Control",
+        "has_selectors": false,
+        "control_category": "MultiValue Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "media"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "media_types",
+                "type": "select",
+                "options": [
+                    "image",
+                    "application/pdf",
+                    "svg",
+                    "video"
+                ]
+            }
+        ]
+    },
+    "Control_Icons": {
+        "type": "/Elementor/Controls_Manager::ICONS",
+        "control_name": "Icons Control",
+        "has_selectors": false,
+        "control_category": "MultiValue Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "icons"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            }
+        ]
+    },
+    "Control_Text_Shadow": {
+        "type": "/Elementor/Controls_Manager::TEXT_SHADOW",
+        "control_name": "Text Shadow Control",
+        "has_selectors": true,
+        "control_category": "MultiValue Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "text_shadow"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Box_Shadow": {
+        "type": "/Elementor/Controls_Manager::BOX_SHADOW",
+        "control_name": "Box Shadow Control",
+        "has_selectors": true,
+        "control_category": "MultiValue Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "box_shadow"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Slider": {
+        "type": "/Elementor/Controls_Manager::SLIDER",
+        "control_name": "Slider Control",
+        "has_selectors": true,
+        "control_category": "Unit Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "slider"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "dynamic",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "size_units",
+                "type": "select",
+                "options": [
+                    "px",
+                    "%",
+                    "em",
+                    "rem",
+                    "custom"
+                ]
+            },
+            {
+                "name": "min",
+                "type": "number"
+            },
+            {
+                "name": "max",
+                "type": "number"
+            },
+            {
+                "name": "step",
+                "type": "number"
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Dimensions": {
+        "type": "/Elementor/Controls_Manager::DIMENSIONS",
+        "control_name": "Dimensions Control",
+        "has_selectors": true,
+        "control_category": "Unit Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "dimensions"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "size_units",
+                "type": "select",
+                "options": [
+                    "px",
+                    "%",
+                    "em",
+                    "rem",
+                    "custom"
+                ]
+            },
+            {
+                "name": "selectors",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "selector",
+                        "type": "text"
+                    },
+                    {
+                        "name": "property",
+                        "type": "text"
+                    }
+                ]
+            }
+        ]
+    },
+    "Control_Heading": {
+        "type": "/Elementor/Controls_Manager::HEADING",
+        "control_name": "Heading Control",
+        "has_selectors": false,
+        "control_category": "UI Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "heading"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            }
+        ]
+    },
+    "Control_Raw_Html": {
+        "type": "/Elementor/Controls_Manager::RAW_HTML",
+        "control_name": "Raw HTML Control",
+        "has_selectors": false,
+        "control_category": "UI Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "raw_html"
+            },
+            {
+                "name": "label",
+                "type": "text"
+            },
+            {
+                "name": "description",
+                "type": "textarea"
+            },
+            {
+                "name": "show_label",
+                "type": "switch",
+                "default": true
+            },
+            {
+                "name": "label_block",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "raw",
+                "type": "textarea"
+            },
+            {
+                "name": "content_classes",
+                "type": "text"
+            }
+        ]
+    },
+    "Control_Divider": {
+        "type": "/Elementor/Controls_Manager::DIVIDER",
+        "control_name": "Divider Control",
+        "has_selectors": false,
+        "control_category": "UI Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "divider"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            }
+        ]
+    },
+    "Control_Alert": {
+        "type": "/Elementor/Controls_Manager::ALERT",
+        "control_name": "Alert Control",
+        "has_selectors": false,
+        "control_category": "UI Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "alert"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "alert_type",
+                "type": "radio",
+                "default": "info",
+                "options": {
+                    "info": "info",
+                    "success": "success",
+                    "warning": "warning",
+                    "danger": "danger"
+                }
+            },
+            {
+                "name": "heading",
+                "type": "text"
+            },
+            {
+                "name": "content",
+                "type": "textarea"
+            }
+        ]
+    },
+    "Control_Notice": {
+        "type": "/Elementor/Controls_Manager::NOTICE",
+        "control_name": "Notice Control",
+        "has_selectors": false,
+        "control_category": "UI Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "notice"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "notice_type",
+                "type": "radio",
+                "default": "info",
+                "options": {
+                    "info": "info",
+                    "success": "success",
+                    "warning": "warning",
+                    "danger": "danger"
+                }
+            },
+            {
+                "name": "dismissible",
+                "type": "switch",
+                "default": false
+            },
+            {
+                "name": "heading",
+                "type": "text"
+            },
+            {
+                "name": "content",
+                "type": "textarea"
+            }
+        ]
+    },
+    "Group_Control_Typography": {
+        "type": "typography",
+        "control_name": "Typography Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "typography"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Text_Stroke": {
+        "type": "text-stroke",
+        "control_name": "Text Stroke Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "text-stroke"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Text_Shadow": {
+        "type": "text-shadow",
+        "control_name": "Text Shadow Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "text-shadow"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Box_Shadow": {
+        "type": "box-shadow",
+        "control_name": "Box Shadow Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "box-shadow"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Border": {
+        "type": "border",
+        "control_name": "Border Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "border"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Background": {
+        "type": "background",
+        "control_name": "Background Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "background"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "types",
+                "type": "select",
+                "multiple": true,
+                "options": {
+                    "classic": "Classic",
+                    "gradient": "Gradient",
+                    "video": "Video"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    },
+    "Group_Control_Css_Filter": {
+        "type": "custom_css_filters",
+        "control_name": "CSS Filter Group Control",
+        "has_selectors": true,
+        "control_category": "Group Control",
+        "fields": [
+            {
+                "name": "type",
+                "type": "text",
+                "default": "typography"
+            },
+            {
+                "name": "separator",
+                "type": "radio",
+                "default": "default",
+                "options": {
+                    "default": "default",
+                    "before": "before",
+                    "after": "after"
+                }
+            },
+            {
+                "name": "exclude",
+                "type": "repeater",
+                "fields": [
+                    {
+                        "name": "property_name",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "name": "selector",
+                "type": "text"
+            }
+        ]
+    }
+}

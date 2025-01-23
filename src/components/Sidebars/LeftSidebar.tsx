@@ -125,7 +125,7 @@ const LeftSidebar = () => {
         </div>
         <div className="extra-icons">
           <img src={plusIcon} alt="plus icon" />
-          <img src={collapseIcon} alt="collapse icon" />
+          <img src={collapseIcon} alt="collapse icon" onClick={()=>{console.log('test')}} />
         </div>
       </Navbar>
       <div className="left-sidebar-container">
