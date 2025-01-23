@@ -10,8 +10,13 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { Collapse, CollapseProps, Popconfirm, Tabs, TabsProps } from "antd";
 import "./style.css";
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleContent } from './../../redux/toggleSlice';
+import { RootState } from "../../redux/store";
 
 const LeftSidebar = () => {
+  const dispatch = useDispatch();
+  const showContent = useSelector((state: RootState) => state.toggle.showContent);
   const text = `
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
@@ -121,11 +126,11 @@ const LeftSidebar = () => {
     <div className="left-sidebar">
       <Navbar>
         <div className="wordpress-logo">
-          <img src={wordpressImage} alt="wordpress_image" />
+        {!showContent && <img src={wordpressImage} alt="wordpress_image" />}
         </div>
         <div className="extra-icons">
-          <img src={plusIcon} alt="plus icon" />
-          <img src={collapseIcon} alt="collapse icon" onClick={()=>{console.log('test')}} />
+        {!showContent && <img src={plusIcon} alt="plus icon" />}
+          <img src={collapseIcon} alt="collapse icon" onClick={()=>{dispatch(toggleContent())}} />
         </div>
       </Navbar>
       <div className="left-sidebar-container">
