@@ -1,6 +1,8 @@
 import { Dropdown, MenuProps } from "antd";
 import plusIcon from "./../../assets/svgs/plus.svg";
 import controllerDataJson from "./../../assets/controller.json";
+import { useDispatch } from "react-redux";
+import { controllerContent } from "../../redux/controllerSlice";
 type ControlField = {
     name: string;
     type: string;
@@ -21,8 +23,9 @@ type ControllerData = Record<string, Control>;
 
 const controllerData = controllerDataJson as ControllerData;
 const DropDownWrapper = ()=>{
+    const dispatch = useDispatch()
     const items: MenuProps['items'] = Object.keys(controllerData).map((key, index) => ({
-        label: controllerData[key].control_name, // Display `control_name`
+        label: <div onClick={()=>dispatch(controllerContent(controllerData[key].control_name))}>{ controllerData[key].control_name}</div>, // Display `control_name`
         key: String(index), // Use a unique key for each menu item
     }));
  return (
