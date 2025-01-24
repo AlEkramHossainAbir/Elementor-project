@@ -1,6 +1,5 @@
 import Navbar from "../Navbar";
 import wordpressImage from "./../../assets/images/wordpress.png";
-import plusIcon from "./../../assets/svgs/plus.svg";
 import collapseIcon from "./../../assets/svgs/collapse.svg";
 import editIcon from "./../../assets/svgs/edit-pen.svg";
 import settingIcon from "./../../assets/svgs/setting-wheel.svg";
@@ -13,6 +12,8 @@ import "./style.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleContent } from './../../redux/toggleSlice';
 import { RootState } from "../../redux/store";
+import { useEffect } from "react";
+import DropDownWrapper from "../DropDown";
 
 const LeftSidebar = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const LeftSidebar = () => {
       children: <p>{text}</p>,
     },
   ];
+
   const customProps: CollapseProps = {
     className: "custom-controller-collapse",
     expandIcon: (panelProps) => {
@@ -81,6 +83,7 @@ const LeftSidebar = () => {
       );
     },
   };
+
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -122,6 +125,7 @@ const LeftSidebar = () => {
     },
   ];
 
+
   return (
     <div className="left-sidebar">
       <Navbar>
@@ -129,7 +133,7 @@ const LeftSidebar = () => {
         {!showContent && <img src={wordpressImage} alt="wordpress_image" />}
         </div>
         <div className="extra-icons">
-        {!showContent && <img src={plusIcon} alt="plus icon" />}
+        {!showContent && <DropDownWrapper />}
           <img src={collapseIcon} alt="collapse icon" onClick={()=>{dispatch(toggleContent())}} />
         </div>
       </Navbar>
