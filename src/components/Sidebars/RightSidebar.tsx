@@ -99,7 +99,6 @@ const RightSidebar = () => {
               )
             }
           />
-          ,
         </div>
       </div>
     </div>

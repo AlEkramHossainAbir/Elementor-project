@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleContent } from './../../redux/toggleSlice';
 import { RootState } from "../../redux/store";
 import DropDownWrapper from "../DropDown";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import controllerDataJson from "./../../assets/controller.json";
 
 type ControlField = {
@@ -40,6 +40,7 @@ const LeftSidebar = () => {
   const dispatch = useDispatch();
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
   const showController = useSelector((state: RootState)=>state.controller.selectedController )
+  const [activeKey, setActiveKey] = useState<string>("1");
   const text = `
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
@@ -47,7 +48,7 @@ const LeftSidebar = () => {
 `;
 
   const onChange = (key: string) => {
-    console.log(key);
+    setActiveKey(key);
   };
 
   const collapseOnChange = (key: string | string[]) => {
@@ -154,7 +155,7 @@ const LeftSidebar = () => {
     );
 };
  useEffect(()=>{
-  console.log(showController)
+  console.log(showController,activeKey)
    // Find the key based on the control name
    const key = findKeyByControlName(showController);
 
@@ -167,6 +168,7 @@ const LeftSidebar = () => {
    }
 
  },[showController])
+
   return (
     <div className="left-sidebar">
       <Navbar>
@@ -184,7 +186,7 @@ const LeftSidebar = () => {
           <span className="header-text">Accordion</span>
         </div>
         <div>
-          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+          <Tabs defaultActiveKey={activeKey} items={items} onChange={onChange} />
         </div>
       </div>
     </div>
