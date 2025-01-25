@@ -1,8 +1,10 @@
 import { Dropdown, MenuProps } from "antd";
 import plusIcon from "./../../assets/svgs/plus.svg";
 import controllerDataJson from "./../../assets/controller.json";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { controllerContent } from "../../redux/controllerSlice";
+import { RootState } from "../../redux/store";
+import { addCollapseItem } from "../../redux/collapseItemSlice";
 type ControlField = {
     name: string;
     type: string;
@@ -24,8 +26,18 @@ type ControllerData = Record<string, Control>;
 const controllerData = controllerDataJson as ControllerData;
 const DropDownWrapper = ()=>{
     const dispatch = useDispatch()
+    const { activeTabKey } = useSelector((state:RootState) => state.collapseItem);
     const items: MenuProps['items'] = Object.keys(controllerData).map((key, index) => ({
-        label: <div onClick={()=>dispatch(controllerContent(controllerData[key].control_name))}>{ controllerData[key].control_name}</div>, // Display `control_name`
+        label: <div onClick={()=>{
+            const newItem = {
+                key: new Date().toISOString(),
+                label: `New Control ${Math.random().toFixed(2)}`,
+                children: controllerData[key].control_name,
+              };
+              console.log(newItem,activeTabKey)
+              dispatch(addCollapseItem({key:activeTabKey,newItem}))
+            dispatch(controllerContent(controllerData[key].control_name))
+        }}>{ controllerData[key].control_name}</div>, // Display `control_name`
         key: String(index), // Use a unique key for each menu item
     }));
  return (
