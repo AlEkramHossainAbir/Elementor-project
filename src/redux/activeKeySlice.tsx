@@ -13,8 +13,8 @@ const initialState: IcollapseItemSlice = {
   activeTabKey: "1",
 };
 
-const collapseItemSlice = createSlice({
-  name: 'collapseItem',
+const activeKeySlice = createSlice({
+  name: 'activeTabKey',
   initialState,
   reducers: {
     setActiveTab: (state, action: PayloadAction<string>) => {
@@ -23,5 +23,5 @@ const collapseItemSlice = createSlice({
   },
 });
 
-export const { setActiveTab } = collapseItemSlice.actions;
-export default collapseItemSlice.reducer;
+export const { setActiveTab } = activeKeySlice.actions;
+export default activeKeySlice.reducer;

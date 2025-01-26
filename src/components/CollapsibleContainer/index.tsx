@@ -100,7 +100,7 @@ const controllerData = controllerDataJson as ControllerData;
   };
 const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
   const dispatch = useDispatch()
-  const { activeTabKey } = useSelector((state:RootState) => state.collapseItem);
+  const { activeTabKey } = useSelector((state:RootState) => state.activeTabKey);
   const showController = useSelector((state: RootState)=>state.controller.selectedController )
   const [currentCollapseItems, setCurrentCollapseItems] = useState<CollapseProps["items"]>(
     getCollapseItems(activeTabKey)

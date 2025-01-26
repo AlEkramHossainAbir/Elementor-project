@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleContent } from './../../redux/toggleSlice';
 import { RootState } from "../../redux/store";
 import DropDownWrapper from "../DropDown";
-import { setActiveTab } from "../../redux/collapseItemSlice";
+import { setActiveTab } from "../../redux/activeKeySlice";
 import CollapsibleContainer from "../CollapsibleContainer";
 
 
@@ -18,7 +18,7 @@ import CollapsibleContainer from "../CollapsibleContainer";
 const LeftSidebar = () => {
   const dispatch = useDispatch();
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
-  const { activeTabKey } = useSelector((state: RootState) => state.collapseItem);
+  const { activeTabKey } = useSelector((state: RootState) => state.activeTabKey);
 
   const tabItems: TabsProps["items"] = [
     {
