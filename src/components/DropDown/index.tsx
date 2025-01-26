@@ -27,7 +27,7 @@ const controllerData = controllerDataJson as ControllerData;
 const DropDownWrapper = ()=>{
     const dispatch = useDispatch()
     const { activeTabKey, tabItems } = useSelector((state:RootState) => state.collapseItem);
-    console.log(tabItems)
+    
     const items: MenuProps['items'] = Object.keys(controllerData).map((key, index) => ({
         label: <div onClick={()=>{
             const newItem = {
@@ -35,7 +35,7 @@ const DropDownWrapper = ()=>{
                 label: `New Control ${Math.random().toFixed(2)}`,
                 children: controllerData[key].control_name,
               };
-              console.log(newItem,activeTabKey)
+              
             dispatch(controllerContent(controllerData[key].control_name))
         }}>{ controllerData[key].control_name}</div>, // Display `control_name`
         key: String(index), // Use a unique key for each menu item

@@ -2,10 +2,11 @@ import { Collapse, CollapseProps, Popconfirm } from "antd";
 import chevronUp from "./../../assets/svgs/chevronUp.svg";
 import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import controllerDataJson from "./../../assets/controller.json";
+import { controllerContent } from "../../redux/controllerSlice";
 
 
 type ControlField = {
@@ -98,31 +99,50 @@ const controllerData = controllerDataJson as ControllerData;
     }
   };
 const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
+  const dispatch = useDispatch()
   const { activeTabKey } = useSelector((state:RootState) => state.collapseItem);
   const showController = useSelector((state: RootState)=>state.controller.selectedController )
-  console.log("testItem",showController)
+  const [currentCollapseItems, setCurrentCollapseItems] = useState<CollapseProps["items"]>(
+    getCollapseItems(activeTabKey)
+  );
+ 
   const findKeyByControlName = (controlName: string): string | undefined => {
-    // Loop through the keys of the JSON and find the matching control_name
     return Object.keys(controllerData).find(
         (key) => controllerData[key].control_name === controlName
     );
 };
- useEffect(()=>{
-  console.log(showController)
-   // Find the key based on the control name
-   const key = findKeyByControlName(showController);
+ 
+useEffect(() => {
+  // Find the key based on the control name
+  const key = findKeyByControlName(showController);
 
-   if (key) {
-       // Access the full object using the key
-       const controlObject = controllerData[key];
-       console.log(controlObject); // Access the "fields" property or any other property
-   } else {
-       console.log("No matching control_name found.");
-   }
-  //  setTabItems([])
- },[showController])
+  if (key) {
+    // Access the full object using the key
+    const controlObject = controllerData[key];
 
-  const collapseItems= getCollapseItems(activeTabKey);
+    // Dynamically add a new collapse item
+    const newCollapseItem = {
+      key: new Date().toISOString(), // Ensure key is unique
+      label: controlObject.control_name || "New Item",
+      children: <p>No content available</p>,
+    };
+
+    setCurrentCollapseItems((prevItems) => {
+      // Ensure `prevItems` is properly typed and initialized
+      const items = prevItems || [];
+      const isKeyExists = items.some((item) => item.key === newCollapseItem.key);
+      return isKeyExists ? items : [...items, newCollapseItem];
+    });
+    dispatch(controllerContent(''))
+  } else {
+    console.log("No matching control_name found.");
+  }
+}, [showController]);
+
+useEffect(() => {
+  // Update the collapse items when the active tab changes
+  setCurrentCollapseItems(getCollapseItems(activeTabKey));
+}, [activeTabKey]);
   
     const collapseOnChange = (key: string | string[]) => {
         console.log(key);
@@ -164,7 +184,7 @@ const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
     return (
         <>
         <Collapse
-          items={collapseItems}
+          items={currentCollapseItems}
           expandIconPosition="end"
           defaultActiveKey={["1"]}
           onChange={collapseOnChange}
