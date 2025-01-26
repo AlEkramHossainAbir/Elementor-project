@@ -1,15 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import { Collapse, CollapseProps, Popconfirm } from "antd";
+
+import { Collapse, CollapseProps, Form, Popconfirm, Radio } from "antd";
 import chevronUp from "./../../assets/svgs/chevronUp.svg";
 import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import controllerDataJson from "./../../assets/controller.json";
 import { controllerContent } from "../../redux/controllerSlice";
-
+import {fieldTypeComponents} from "./../FieldTypeMap/"
 
 
 type ControlField = {
@@ -41,17 +42,7 @@ const controllerData = controllerDataJson as ControllerData;
       key: "1",
       label: "Control 1",
       children: <p>Content for Control 1</p>,
-    },
-    {
-      key: "2",
-      label: "Control 2",
-      children: <p>Content for Control 2</p>,
-    },
-    {
-      key: "3",
-      label: "Control 3",
-      children: <p>Content for Control 3</p>,
-    },
+    }
   ];
   
   const collapseItems2: CollapseProps["items"] = [
@@ -59,17 +50,7 @@ const controllerData = controllerDataJson as ControllerData;
       key: "1",
       label: "Style 1",
       children: <p>Content for Style 1</p>,
-    },
-    {
-      key: "2",
-      label: "Style 2",
-      children: <p>Content for Style 2</p>,
-    },
-    {
-      key: "3",
-      label: "Style 3",
-      children: <p>Content for Style 3</p>,
-    },
+    }
   ];
   
   const collapseItems3: CollapseProps["items"] = [
@@ -77,17 +58,7 @@ const controllerData = controllerDataJson as ControllerData;
       key: "1",
       label: "Advanced 1",
       children: <p>Content for Advanced 1</p>,
-    },
-    {
-      key: "2",
-      label: "Advanced 2",
-      children: <p>Content for Advanced 2</p>,
-    },
-    {
-      key: "3",
-      label: "Advanced 3",
-      children: <p>Content for Advanced 3</p>,
-    },
+    }
   ];
   const getCollapseItems = (activeTabKey: string): CollapseProps["items"] => {
     switch (activeTabKey) {
@@ -118,7 +89,7 @@ const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
 useEffect(() => {
   // Find the key based on the control name
   const key = findKeyByControlName(showController);
-
+ console.log(key)
   if (key) {
     // Access the full object using the key
     const controlObject = controllerData[key];
@@ -127,7 +98,43 @@ useEffect(() => {
     const newCollapseItem = {
       key: new Date().toISOString(), // Ensure key is unique
       label: controlObject.control_name || "New Item",
-      children: <p>No content available</p>,
+      children:  <Form layout="vertical">
+        {controlObject.fields.map((field) => {
+          // Handle dynamic rendering based on type
+          const Component = fieldTypeComponents[field.type] as React.ElementType;
+  
+          if (!Component) {
+            return (
+              <p key={field.name}>
+                Unsupported field type: {field.type}
+              </p>
+            );
+          }
+
+          return (
+            <Form.Item label={field.name} key={field.name}>
+              {field.type === "radio" ? (
+              <Radio.Group
+                defaultValue={field.default as string}
+                onChange={(e) => console.log(field.name, e.target.value)}
+                options={[]}
+              />
+            ) : (
+              // Render other components
+              React.cloneElement(Component, {
+                defaultValue: field.default,
+                onChange: (e) => {
+                  const value = field.type === "switch" ? e : e.target.value;
+                  console.log(field.name, value);
+                },
+              })
+            )}
+           
+            </Form.Item>
+          );
+        })}
+      </Form>
+      ,
     };
 
     setCurrentCollapseItems((prevItems) => {

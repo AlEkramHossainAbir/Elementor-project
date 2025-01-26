@@ -9,6 +9,7 @@
 }
 .left-sidebar-container {
   height: 1032px;
+  overflow: auto;
   background-color: white;
   .header-text-container {
     height: 44px;
