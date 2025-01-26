@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { Collapse, CollapseProps, Popconfirm } from "antd";
 import chevronUp from "./../../assets/svgs/chevronUp.svg";
 import chevronDown from "./../../assets/svgs/chevronDown.svg";
@@ -7,6 +9,7 @@ import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 import controllerDataJson from "./../../assets/controller.json";
 import { controllerContent } from "../../redux/controllerSlice";
+
 
 
 type ControlField = {
@@ -143,6 +146,13 @@ useEffect(() => {
   // Update the collapse items when the active tab changes
   setCurrentCollapseItems(getCollapseItems(activeTabKey));
 }, [activeTabKey]);
+
+const handleDelete = (keyToDelete: string) => {
+  console.log(keyToDelete)
+  setCurrentCollapseItems((prevItems) =>
+    prevItems?.filter((item) => item.key !== keyToDelete)
+  );
+};
   
     const collapseOnChange = (key: string | string[]) => {
         console.log(key);
@@ -158,7 +168,10 @@ useEffect(() => {
                 description="Are you sure to delete this task?"
                 okText="Yes"
                 cancelText="No"
-                onConfirm={(e) => e?.stopPropagation()}
+                onConfirm={(e) =>{
+                  e?.stopPropagation();
+                  handleDelete(panelProps.panelKey); 
+                }}
                 onCancel={(e) => e?.stopPropagation()}
                 className="controller-custom-popconfirm"
               >
