@@ -10,38 +10,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleContent } from './../../redux/toggleSlice';
 import { RootState } from "../../redux/store";
 import DropDownWrapper from "../DropDown";
-import { useEffect } from "react";
-import controllerDataJson from "./../../assets/controller.json";
 import { setActiveTab } from "../../redux/collapseItemSlice";
 import CollapsibleContainer from "../CollapsibleContainer";
-
-type ControlField = {
-    name: string;
-    type: string;
-    default?: string | boolean | number;
-    options?: Record<string, string>;
-};
-
-type Control = {
-    type: string;
-    control_name: string;
-    has_selector?: boolean;
-    has_selectors?: boolean;
-    control_category: string;
-    fields: ControlField[];
-};
-
-type ControllerData = Record<string, Control>;
-
-const controllerData = controllerDataJson as ControllerData;
-
 
 
 
 const LeftSidebar = () => {
   const dispatch = useDispatch();
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
-  const showController = useSelector((state: RootState)=>state.controller.selectedController )
   const { activeTabKey } = useSelector((state: RootState) => state.collapseItem);
 
   const tabItems: TabsProps["items"] = [
@@ -86,27 +62,6 @@ const LeftSidebar = () => {
   };
 
   
-
-  const findKeyByControlName = (controlName: string): string | undefined => {
-    // Loop through the keys of the JSON and find the matching control_name
-    return Object.keys(controllerData).find(
-        (key) => controllerData[key].control_name === controlName
-    );
-};
- useEffect(()=>{
-  console.log(showController)
-   // Find the key based on the control name
-   const key = findKeyByControlName(showController);
-
-   if (key) {
-       // Access the full object using the key
-       const controlObject = controllerData[key];
-       console.log(controlObject); // Access the "fields" property or any other property
-   } else {
-       console.log("No matching control_name found.");
-   }
-  //  setTabItems([])
- },[showController])
 
   return (
     <div className="left-sidebar">
