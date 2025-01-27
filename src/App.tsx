@@ -1,7 +1,7 @@
 import "./App.css"; // Add your styling here
-import LeftSidebar from "./components/Sidebars/LeftSidebar";
+import LeftSidebar from "./components/LeftSidebar";
 import Editor from "./components/Editor";
-import RightSidebar from "./components/Sidebars/RightSidebar";
+import RightSidebar from "./components/RightSidebar";
 import { Splitter } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";

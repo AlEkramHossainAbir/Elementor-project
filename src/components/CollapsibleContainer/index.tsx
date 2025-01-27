@@ -98,7 +98,7 @@ useEffect(() => {
     const newCollapseItem = {
       key: new Date().toISOString(), // Ensure key is unique
       label: controlObject.control_name || "New Item",
-      children:  <Form layout="vertical">
+      children:  <Form layout="horizontal">
         {controlObject.fields.map((field) => {
           // Handle dynamic rendering based on type
           const Component = fieldTypeComponents[field.type] as React.ElementType;

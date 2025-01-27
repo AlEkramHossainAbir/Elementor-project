@@ -7,6 +7,7 @@ import { Button, Collapse, CollapseProps } from "antd";
 import DropDownArrowIcon from "./../../assets/svgs/DropDownArrow.svg";
 import plusIcon from "./../../assets/svgs/plus_icon.svg";
 import minusIcon from "./../../assets/svgs/minus_icon.svg";
+import "./style.css";
 
 const RightSidebar = () => {
   const onChange = (key: string | string[]) => {
