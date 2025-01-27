@@ -35,7 +35,7 @@ const DropDownWrapper = ()=>{
  return (
     <>
     
-    <Dropdown menu={{ items }} trigger={['click']}>
+    <Dropdown menu={{ items }} trigger={['click']} className="controller-dropdown-wrapper">
         <img src={plusIcon} alt="plus icon" />
     </Dropdown>
     </>
