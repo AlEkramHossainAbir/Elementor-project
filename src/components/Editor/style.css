@@ -4,6 +4,9 @@
   .ant-tabs .ant-tabs-nav {
     margin: 0;
     height: 48px;
+    &::before {
+      border-bottom: none;
+    }
     .ant-tabs-nav-list {
       background-color: black;
       .ant-tabs-tab:first-child {
