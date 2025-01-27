@@ -21,27 +21,11 @@
     .extra-icons {
       display: flex;
       justify-content: end;
+      align-items: center;
       img {
         width: 34px;
+        
         cursor: pointer;
-      }
-      .save-btn,
-      .dropdown-btn {
-        height: 48px;
-        border-radius: 1px;
-        border: none;
-        background-color: #f0abfe;
-      }
-      .save-btn {
-        width: 118px;
-        border-right: 1px solid black;
-        font-family: "Roboto", sans-serif;
-        font-weight: 500;
-        font-size: 13px;
-        color: #101010;
-      }
-      .dropdown-btn {
-        width: 48px;
       }
     }
     .responsive-icons {
