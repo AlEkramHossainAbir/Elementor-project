@@ -41,4 +41,7 @@
 }
 .splitter {
   background-color: black;
+  .ant-splitter-panel:last-child {
+    overflow: hidden;
+  }
 }

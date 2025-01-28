@@ -1,23 +1,38 @@
-import Navbar from "../Navbar";
-
 import desktopIcon from "./../../assets/svgs/desktop.svg";
 import tabIcon from "./../../assets/svgs/tab.svg";
 import mobileIcon from "./../../assets/svgs/mobile.svg";
-import { Button, Collapse, CollapseProps } from "antd";
+import { Button, Collapse, CollapseProps, Tabs, TabsProps } from "antd";
 import plusIcon from "./../../assets/svgs/plus_icon.svg";
 import minusIcon from "./../../assets/svgs/minus_icon.svg";
 import previewIcon from "./../../assets/svgs/preview-icon.svg";
 import infoIcon from "./../../assets/svgs/info-icon.svg";
 import "./style.css";
-import { useState } from "react";
 
 const RightSidebar = () => {
-    const [activeTab, setActiveTab] = useState<"desktop" | "tab" | "mobile">(
-        "desktop"
-      );
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
+
+  const getIframeContent = (htmlContent: string) => `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    ${htmlContent}
+  </body>
+  </html>
+`;
+
 
   const items: CollapseProps["items"] = [
     {
@@ -73,69 +88,97 @@ const RightSidebar = () => {
       ),
     },
   ];
-
+  const tabsItems: TabsProps["items"] = [
+    {
+      key: "1",
+      label: <img
+      src={desktopIcon}
+      alt="desktop Icon"
+    />
+    ,
+      children: (
+        <div className="right-sidebar-container">
+        <div className="block-elements custom-collapse">
+        <Collapse
+        items={items}
+        expandIconPosition="end"
+        bordered={false}
+        defaultActiveKey={["1"]}
+        onChange={onChange}
+        expandIcon={(panelProps) =>
+          panelProps.isActive ? (
+            <img src={minusIcon} alt="minus icon" />
+          ) : (
+            <img src={plusIcon} alt="plus icon" />
+          )
+        }
+      />
+      </div>
+      </div>
+      ),
+    },
+    {
+      key: "2",
+      label: <img
+      src={tabIcon}
+      alt="Tab Icon"
+    />
+    ,
+      children: (
+        <iframe
+          title="Tab 2"
+          srcDoc={getIframeContent(`
+            <div class="right-sidebar-container">
+              <div class="block-elements custom-collapse">
+                <h3>Tab Content</h3>
+                <p>This content is displayed inside an iframe for the second tab.</p>
+              </div>
+            </div>
+          `)}
+          style={{
+            width: "70%",
+            height: "1048px",
+            border: "none",
+            backgroundColor: "#f5f5f5",
+          }}
+        ></iframe>
+      ),
+    },
+    {
+      key: "3",
+      label:<img
+      src={mobileIcon}
+      alt="Mobile Icon"
+    />,
+      children: (
+        <iframe
+          title="Tab 2"
+          srcDoc={getIframeContent(`
+            <div class="right-sidebar-container">
+              <div class="block-elements custom-collapse">
+                <h3>Tab Content</h3>
+                <p>This content is displayed inside an iframe for the second tab.</p>
+              </div>
+            </div>
+          `)}
+          style={{
+            width: "40%",
+            height: "1048px",
+            border: "none",
+            backgroundColor: "#f5f5f5",
+          }}
+        ></iframe>
+      ),
+    },
+  ];
+  const operations = <div className="right-sidebar-extra-icons">
+  <img src={infoIcon} alt="info icon" />
+  <img src={previewIcon} alt="preview icon" />
+  <Button className="save-btn">Save Changes</Button>
+</div>
   return (
     <div className="right-sidebar">
-      <Navbar>
-        <div className="responsive-icons">
-        <img
-            src={desktopIcon}
-            alt="desktop Icon"
-            className={activeTab === "desktop" ? "active-icon" : ""}
-            onClick={() => setActiveTab("desktop")}
-          />
-          <img
-            src={tabIcon}
-            alt="Tab Icon"
-            className={activeTab === "tab" ? "active-icon" : ""}
-            onClick={() => setActiveTab("tab")}
-          />
-          <img
-            src={mobileIcon}
-            alt="Mobile Icon"
-            className={activeTab === "mobile" ? "active-icon" : ""}
-            onClick={() => setActiveTab("mobile")}
-          />
-        </div>
-        <div className="right-sidebar-extra-icons">
-            <img src={infoIcon} alt="info icon" />
-            <img src={previewIcon} alt="preview icon" />
-          <Button className="save-btn">Save Changes</Button>
-        </div>
-      </Navbar>
-      <div className="right-sidebar-container">
-        <div className="block-elements custom-collapse">
-         
-          {activeTab === "desktop" && (
-             <Collapse
-             items={items}
-             expandIconPosition="end"
-             bordered={false}
-             defaultActiveKey={["1"]}
-             onChange={onChange}
-             expandIcon={(panelProps) =>
-               panelProps.isActive ? (
-                 <img src={minusIcon} alt="minus icon" />
-               ) : (
-                 <img src={plusIcon} alt="plus icon" />
-               )
-             }
-           />
-          )}
-          {activeTab === "tab" && (
-            <div>
-              <h3>Tab Content</h3>
-              <p>This content is displayed when the "Tab Icon" is active.</p>
-            </div>
-          )}
-          {activeTab === "mobile" && (
-            <p>
-              This is a simple paragraph displayed when the "Mobile Icon" is
-              active.
-            </p>
-          )}
-        </div>
-      </div>
+      <Tabs defaultActiveKey="1" items={tabsItems} onChange={onChange} tabBarExtraContent={operations}/>
     </div>
   );
 };

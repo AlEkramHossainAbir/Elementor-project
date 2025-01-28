@@ -1,3 +1,24 @@
+.right-sidebar {
+  .ant-tabs .ant-tabs-tab{
+    padding: 0px !important;
+  }
+  .ant-tabs-nav{
+    margin-bottom: 0px !important;
+    &::before{
+      border-bottom: none;
+    }
+    .ant-tabs-tab:first-child{
+      margin-left: 20px;
+    }
+  }
+  .ant-tabs-content{
+    .ant-tabs-tabpane-active{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
 .right-sidebar-container {
     height: 1032px;
     background-color: #e7e7e7;
