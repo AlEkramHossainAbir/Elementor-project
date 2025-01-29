@@ -7,7 +7,7 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import controllerDataJson from "./../../assets/controller.json";
 import { controllerContent } from "../../redux/controllerSlice";
 import {fieldTypeComponents} from "./../FieldTypeMap/"
@@ -51,78 +51,69 @@ const CollapsibleContainer= ()=>{
 };
  
 useEffect(() => {
+  if (!showController) return;
 
   const key = findKeyByControlName(showController);
- 
-  if (key) {
-    // Access the full object using the key
-    const controlObject = controllerData[key];
+  if (!key) {
+    console.log("No matching control_name found.");
+    return;
+  }
 
-    // Dynamically add a new collapse item
-    const newCollapseItem = {
-      key: new Date().toISOString(), // Ensure key is unique
-      label: controlObject.control_name || "New Item",
-      children:  <Form layout="horizontal">
+  const controlObject = controllerData[key];
+
+  const newCollapseItem = {
+    key: `${activeTabKey}-${new Date().getTime()}`, // More unique and predictable key
+    label: controlObject.control_name || "New Item",
+    children: (
+      <Form layout="horizontal">
         {controlObject.fields.map((field) => {
-          // Handle dynamic rendering based on type
           const Component = fieldTypeComponents[field.type] as React.ElementType;
-  
           if (!Component) {
-            return (
-              <p key={field.name}>
-                Unsupported field type: {field.type}
-              </p>
-            );
+            return <p key={field.name}>Unsupported field type: {field.type}</p>;
           }
 
           return (
             <Form.Item label={field.name} key={field.name}>
               {field.type === "radio" ? (
-              <Radio.Group
-                defaultValue={field.default as string}
-                onChange={(e) => console.log(field.name, e.target.value)}
-                options={[]}
-              />
-            ) : (
-              // Render other components
-              React.cloneElement(Component, {
-                defaultValue: field.default,
-                onChange: (e) => {
-                  const value = field.type === "switch" ? e : e.target.value;
-                  console.log(field.name, value);
-                },
-              })
-            )}
-           
+                <Radio.Group
+                  defaultValue={field.default as string}
+                  onChange={(e) => console.log(field.name, e.target.value)}
+                  options={[]} // Should be populated dynamically
+                />
+              ) : (
+                React.cloneElement(Component, {
+                  defaultValue: field.default,
+                  onChange: (e) => {
+                    const value = field.type === "switch" ? e : e.target.value;
+                    console.log(field.name, value);
+                  },
+                })
+              )}
             </Form.Item>
           );
         })}
       </Form>
-      ,
-    };
+    ),
+  };
 
-    dispatch(
-      addCollapseItem({
-        tabKey: activeTabKey,
-        newItem: newCollapseItem,
-      })
-    );
-  
-    dispatch(controllerContent(''))
-  } else {
-    console.log("No matching control_name found.");
-  }
-}, [showController]);
+  dispatch(
+    addCollapseItem({
+      tabKey: activeTabKey,
+      newItem: newCollapseItem,
+    })
+  );
+
+  dispatch(controllerContent(''));
+}, [showController, dispatch, activeTabKey]); // Include only necessary dependencies
 
 
 const handleDelete = (keyToDelete: string) => {
-  console.log(keyToDelete)
   dispatch(removeCollapseItem({ tabKey: activeTabKey, itemKey: keyToDelete }));
 };
   
-    const collapseOnChange = (key: string | string[]) => {
+    const collapseOnChange = useCallback((key: string | string[]) => {
         console.log(key);
-      };
+      },[]);
     
     const customProps: CollapseProps = {
         className: "custom-controller-collapse",

@@ -12,6 +12,7 @@ import { RootState } from "../../redux/store";
 import DropDownWrapper from "../DropDown";
 import { setActiveTab } from "../../redux/activeKeySlice";
 import CollapsibleContainer from "../CollapsibleContainer";
+import { useCallback, useMemo } from "react";
 
 
 
@@ -20,7 +21,7 @@ const LeftSidebar = () => {
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
   const { activeTabKey } = useSelector((state: RootState) => state.activeTabKey);
 
-  const tabItems: TabsProps["items"] = [
+  const tabItems: TabsProps["items"] = useMemo(()=> [
     {
       key: "1",
       label: (
@@ -30,7 +31,7 @@ const LeftSidebar = () => {
         </div>
       ),
       children: (
-        <CollapsibleContainer />
+        <CollapsibleContainer key={1}/>
       ),
     },
     {
@@ -42,7 +43,7 @@ const LeftSidebar = () => {
         </div>
       ),
       children: (
-        <CollapsibleContainer />
+        <CollapsibleContainer key={2} />
       ),
     },
     {
@@ -53,14 +54,13 @@ const LeftSidebar = () => {
           <span className="controller-level">Advanced</span>
         </div>
       ),
-      children: <CollapsibleContainer />,
+      children: <CollapsibleContainer key={3} />,
     },
-  ]
+  ],[])
 
-  const onChange = (key: string) => {
-    dispatch(setActiveTab(key))
-  };
-
+  const onChange = useCallback((key: string) => {
+    dispatch(setActiveTab(key));
+  }, [dispatch]);
   
 
   return (
