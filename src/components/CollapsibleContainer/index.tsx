@@ -7,10 +7,11 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import controllerDataJson from "./../../assets/controller.json";
 import { controllerContent } from "../../redux/controllerSlice";
 import {fieldTypeComponents} from "./../FieldTypeMap/"
+import { addCollapseItem, removeCollapseItem } from "../../redux/activeKeySlice";
 
 
 type ControlField = {
@@ -34,51 +35,14 @@ type ControllerData = Record<string, Control>;
 const controllerData = controllerDataJson as ControllerData;
 
 
-  interface CollapsibleContainerProps {
-    items: CollapseProps["items"];
-  }
-  const collapseItems1: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: "Control 1",
-      children: <p>Content for Control 1</p>,
-    }
-  ];
-  
-  const collapseItems2: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: "Style 1",
-      children: <p>Content for Style 1</p>,
-    }
-  ];
-  
-  const collapseItems3: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: "Advanced 1",
-      children: <p>Content for Advanced 1</p>,
-    }
-  ];
-  const getCollapseItems = (activeTabKey: string): CollapseProps["items"] => {
-    switch (activeTabKey) {
-      case "1":
-        return collapseItems1;
-      case "2":
-        return collapseItems2;
-      case "3":
-        return collapseItems3;
-      default:
-        return [];
-    }
-  };
-const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
+const CollapsibleContainer= ()=>{
   const dispatch = useDispatch()
-  const { activeTabKey } = useSelector((state:RootState) => state.activeTabKey);
+  
+  const activeTabKey = useSelector((state: RootState) => state.activeTabKey.activeTabKey);
+  const collapseItems = useSelector((state: RootState) => state.activeTabKey.currentCollapseItems[activeTabKey] || []);
+  console.log(collapseItems, activeTabKey)
   const showController = useSelector((state: RootState)=>state.controller.selectedController )
-  const [currentCollapseItems, setCurrentCollapseItems] = useState<CollapseProps["items"]>(
-    getCollapseItems(activeTabKey)
-  );
+
  
   const findKeyByControlName = (controlName: string): string | undefined => {
     return Object.keys(controllerData).find(
@@ -87,9 +51,9 @@ const CollapsibleContainer: React.FC<CollapsibleContainerProps> = ()=>{
 };
  
 useEffect(() => {
-  // Find the key based on the control name
+
   const key = findKeyByControlName(showController);
- console.log(key)
+ 
   if (key) {
     // Access the full object using the key
     const controlObject = controllerData[key];
@@ -137,28 +101,23 @@ useEffect(() => {
       ,
     };
 
-    setCurrentCollapseItems((prevItems) => {
-      // Ensure `prevItems` is properly typed and initialized
-      const items = prevItems || [];
-      const isKeyExists = items.some((item) => item.key === newCollapseItem.key);
-      return isKeyExists ? items : [...items, newCollapseItem];
-    });
+    dispatch(
+      addCollapseItem({
+        tabKey: activeTabKey,
+        newItem: newCollapseItem,
+      })
+    );
+  
     dispatch(controllerContent(''))
   } else {
     console.log("No matching control_name found.");
   }
 }, [showController]);
 
-useEffect(() => {
-  // Update the collapse items when the active tab changes
-  setCurrentCollapseItems(getCollapseItems(activeTabKey));
-}, [activeTabKey]);
 
 const handleDelete = (keyToDelete: string) => {
   console.log(keyToDelete)
-  setCurrentCollapseItems((prevItems) =>
-    prevItems?.filter((item) => item.key !== keyToDelete)
-  );
+  dispatch(removeCollapseItem({ tabKey: activeTabKey, itemKey: keyToDelete }));
 };
   
     const collapseOnChange = (key: string | string[]) => {
@@ -204,7 +163,7 @@ const handleDelete = (keyToDelete: string) => {
     return (
         <>
         <Collapse
-          items={currentCollapseItems}
+          items={collapseItems}
           expandIconPosition="end"
           defaultActiveKey={["1"]}
           onChange={collapseOnChange}

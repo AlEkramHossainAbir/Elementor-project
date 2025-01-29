@@ -30,7 +30,7 @@ const LeftSidebar = () => {
         </div>
       ),
       children: (
-        <CollapsibleContainer items={[]} />
+        <CollapsibleContainer />
       ),
     },
     {
@@ -42,7 +42,7 @@ const LeftSidebar = () => {
         </div>
       ),
       children: (
-        <CollapsibleContainer items={[]} />
+        <CollapsibleContainer />
       ),
     },
     {
@@ -53,7 +53,7 @@ const LeftSidebar = () => {
           <span className="controller-level">Advanced</span>
         </div>
       ),
-      children: <CollapsibleContainer items={[]} />,
+      children: <CollapsibleContainer />,
     },
   ]
 
