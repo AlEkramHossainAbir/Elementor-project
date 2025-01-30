@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { Dropdown, Form, MenuProps, Radio } from "antd";
 import plusIcon from "./../../assets/svgs/plus.svg";
 import controllerDataJson from "./../../assets/controller.json";
@@ -66,13 +64,7 @@ const DropDownWrapper = ()=>{
                               options={[]} // Should be populated dynamically
                             />
                           ) : (
-                            React.cloneElement(Component, {
-                              defaultValue: field.default,
-                              onChange: (e) => {
-                                const value = field.type === "switch" ? e : e.target.value;
-                                console.log(field.name, value);
-                              },
-                            })
+                           Component
                           )}
                         </Form.Item>
                       );
