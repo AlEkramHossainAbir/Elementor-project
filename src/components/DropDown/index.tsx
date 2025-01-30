@@ -63,9 +63,7 @@ const DropDownWrapper = ()=>{
                               onChange={(e) => console.log(field.name, e.target.value)}
                               options={[]} // Should be populated dynamically
                             />
-                          ) : (
-                           Component
-                          )}
+                          ) : <>{Component}</>}
                         </Form.Item>
                       );
                     })}

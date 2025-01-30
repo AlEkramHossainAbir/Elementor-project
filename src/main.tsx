@@ -10,6 +10,13 @@ const themeConfig ={
   "components": {
     "Tabs": {
       "inkBarColor": "rgb(255,255,255)"
+    },
+    "Switch":{
+      "colorPrimary": "rgb(243,186,253)",
+      "colorPrimaryHover": "rgb(243,186,253)",
+      "colorPrimaryBorder": "rgb(243,186,253)",
+      "colorTextQuaternary": "rgb(213,216,220)",
+      "colorTextTertiary": "rgb(213,216,220)"
     }
   }
 };

@@ -7,7 +7,7 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { removeCollapseItem } from "../../redux/controllerSlice";
 
 
@@ -16,12 +16,7 @@ const CollapsibleContainer= ()=>{
   
   const activeTabKey = useSelector((state: RootState) => state.controller.activeTabKey);
   const collapseItems = useSelector((state: RootState) => state.controller.currentCollapseItems[activeTabKey] || []);
-  
-  const showController = useSelector((state: RootState)=>state.controller.selectedController )
 
- 
-useEffect(() => {
-}, [showController, dispatch, activeTabKey]); // Include only necessary dependencies
 
 
 const handleDelete = (keyToDelete: string) => {
