@@ -8,6 +8,7 @@ import { fieldTypeComponents } from "../FieldTypeMap";
 import { RootState } from "../../redux/store";
 import React from "react";
 import { addCollapseItem } from "../../redux/controllerSlice";
+import "./style.css"
 
 type ControlField = {
     name: string;
@@ -38,7 +39,7 @@ const DropDownWrapper = ()=>{
         );
     };
     const items: MenuProps['items'] = Object.keys(controllerData).map((key, index) => ({
-        label: <div onClick={()=>{
+        label: <div className="controller-label" onClick={()=>{
             const controllerKeyName = findKeyByControlName(controllerData[key].control_name);
             if (!controllerKeyName) {
                 console.log("No matching control_name found.");
@@ -92,8 +93,7 @@ const DropDownWrapper = ()=>{
     }));
  return (
     <>
-    
-    <Dropdown menu={{ items }} trigger={['click']} className="controller-dropdown-wrapper">
+    <Dropdown menu={{ items }} overlayClassName="controller-select-dropdown" trigger={['click']} className="controller-dropdown-wrapper">
         <img src={plusIcon} alt="plus icon" />
     </Dropdown>
     </>
