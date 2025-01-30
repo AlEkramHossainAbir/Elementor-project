@@ -5,7 +5,7 @@ import { Input, Switch, Radio, Select, InputNumber } from "antd";
 export const fieldTypeComponents: Record<string, React.ReactNode> = {
   text: <Input />,
   textarea: <Input.TextArea />,
-  switch: <Switch />,
+  switch: <Switch checkedChildren="on" unCheckedChildren="off"  />,
   radio: <Radio.Group options={[]} />, // Options will be passed dynamically
   select: <Select options={[]} />, // Options will be passed dynamically
   number: <InputNumber />

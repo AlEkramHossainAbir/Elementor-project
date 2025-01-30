@@ -6,3 +6,8 @@
         padding: 10px;
     }
 }
+.controller-form{
+    .ant-form-item-label{
+        text-transform: capitalize;
+    }
+}
