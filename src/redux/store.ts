@@ -1,13 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import toggleReducer from './toggleSlice';
 import controllerReducer from './controllerSlice'
-import activeTabKeyReducer from './activeKeySlice'
 
 const store = configureStore({
   reducer: {
     toggle: toggleReducer,
     controller: controllerReducer,
-    activeTabKey: activeTabKeyReducer,
   },
 });
 
