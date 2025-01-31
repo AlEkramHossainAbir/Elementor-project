@@ -72,9 +72,6 @@ const LeftSidebar = () => {
           <DropDownWrapper />
           </div>)}
         </div>
-        <div className="extra-icons">
-          <img src={collapseIcon} alt="collapse icon" onClick={()=>{dispatch(toggleContent())}} />
-        </div>
       </Navbar>
       <div className="left-sidebar-container">
         {/* Sidebar content */}

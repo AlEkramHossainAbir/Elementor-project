@@ -1,5 +1,5 @@
 import { Tabs, TabsProps } from "antd";
-import collapseIcon from "./../../assets/svgs/collapse.svg";
+import chevronLeft from "./../../assets/svgs/chevronLeft.svg";
 import "./style.css";
 import CodeEditor from "../CodeEditor";
 import { useDispatch, useSelector } from "react-redux";
@@ -84,13 +84,13 @@ const items: TabsProps["items"] = [
 ];
 const Editor = () => {
   const dispatch = useDispatch();
-  const showToggleButton = useSelector((state) => (state as RootState).toggle.showContent);
+  // const showToggleButton = useSelector((state) => (state as RootState).toggle.showContent);
   const onChange = (key: string) => {
     console.log(key);
   };
   return (
     <div className="editor-container">
-      {showToggleButton && <div className="toggle-button" style={{position:'absolute', top: '50%', zIndex:1}}> <img src={collapseIcon} alt="collapse icon" onClick={()=>{dispatch(toggleContent())}} /></div>}
+       <div className="toggle-button" onClick={()=>{dispatch(toggleContent())}}> <img src={chevronLeft} alt="collapse icon" /></div>
       <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
     </div>
   );
