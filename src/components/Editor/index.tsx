@@ -2,8 +2,8 @@ import { Tabs, TabsProps } from "antd";
 import chevronLeft from "./../../assets/svgs/chevronLeft.svg";
 import "./style.css";
 import CodeEditor from "../CodeEditor";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { useDispatch } from "react-redux";
+// import { RootState } from "../../redux/store";
 import { toggleContent } from "../../redux/toggleSlice";
 
 const items: TabsProps["items"] = [
