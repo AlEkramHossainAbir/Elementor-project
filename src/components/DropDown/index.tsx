@@ -1,12 +1,11 @@
-import { Dropdown, Form, MenuProps, Radio } from "antd";
+import { Dropdown, MenuProps } from "antd";
 import plusIcon from "./../../assets/svgs/plus.svg";
 import controllerDataJson from "./../../assets/controller.json";
 import { useDispatch, useSelector } from "react-redux";
-import { fieldTypeComponents } from "../FieldTypeMap";
 import { RootState } from "../../redux/store";
-import React from "react";
 import { addCollapseItem } from "../../redux/controllerSlice";
 import "./style.css"
+import ComponentRender from "../ComponentRender";
 
 type ControlField = {
     name: string;
@@ -28,10 +27,6 @@ type ControllerData = Record<string, Control>;
 
 const controllerData = controllerDataJson as ControllerData;
 
-function formatLabel(label:string):string {
-  return label
-      .replace(/_/g, " ")                // Replace underscores with spaces
-}
 
 const DropDownWrapper = ()=>{
     const dispatch = useDispatch()
@@ -53,28 +48,7 @@ const DropDownWrapper = ()=>{
               const newCollapseItem = {
                 key: `${activeTabKey}-${new Date().getTime()}`, // More unique and predictable key
                 label: controlObject.control_name || "New Item",
-                children: (
-                  <Form layout="horizontal">
-                    {controlObject.fields.map((field) => {
-                      const Component = fieldTypeComponents[field.type] as React.ElementType;
-                      if (!Component) {
-                        return <p key={field.name}>Unsupported field type: {field.type}</p>;
-                      }
-                      const formattedLabel = formatLabel(field.name);
-                      return (
-                        <Form.Item label={formattedLabel} key={field.name}>
-                          {field.type === "radio" ? (
-                            <Radio.Group
-                              defaultValue={field.default as string}
-                              onChange={(e) => console.log(field.name, e.target.value)}
-                              options={[]} // Should be populated dynamically
-                            />
-                          ) : <>{Component}</>}
-                        </Form.Item>
-                      );
-                    })}
-                  </Form>
-                ),
+                children: <ComponentRender controlObject={controlObject} />
               };
             
             dispatch(
