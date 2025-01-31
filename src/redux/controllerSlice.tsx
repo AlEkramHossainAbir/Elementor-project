@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { CollapseProps } from 'antd';
 
@@ -26,7 +24,7 @@ const collapseSlice = createSlice({
     },
     addCollapseItem: (
       state,
-      action: PayloadAction<{ tabKey: string; newItem: CollapseProps["items"][number] }>
+      action
     ) => {
       const { tabKey, newItem } = action.payload;
       console.log("Adding item to Redux:", tabKey, newItem);

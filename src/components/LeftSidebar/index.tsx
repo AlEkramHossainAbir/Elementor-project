@@ -1,13 +1,12 @@
 import Navbar from "../Navbar";
 import wordpressImage from "./../../assets/images/wordpress.png";
-import collapseIcon from "./../../assets/svgs/collapse.svg";
 import editIcon from "./../../assets/svgs/edit-pen.svg";
 import settingIcon from "./../../assets/svgs/setting-wheel.svg";
 import bucketIcon from "./../../assets/svgs/bucket.svg";
 import {  Tabs, TabsProps } from "antd";
 import "./style.css";
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleContent } from './../../redux/toggleSlice';
+// import { toggleContent } from './../../redux/toggleSlice';
 import { RootState } from "../../redux/store";
 import DropDownWrapper from "../DropDown";
 import { setActiveTab } from "../../redux/controllerSlice";
