@@ -67,10 +67,12 @@ const LeftSidebar = () => {
     <div className="left-sidebar">
       <Navbar>
         <div className="wordpress-logo">
-        {!showContent && <img src={wordpressImage} alt="wordpress_image" />}
+        {!showContent &&( <div className="left-icon-wrapper">
+          <img src={wordpressImage} alt="wordpress_image" />
+          <DropDownWrapper />
+          </div>)}
         </div>
         <div className="extra-icons">
-        {!showContent && <DropDownWrapper />}
           <img src={collapseIcon} alt="collapse icon" onClick={()=>{dispatch(toggleContent())}} />
         </div>
       </Navbar>
