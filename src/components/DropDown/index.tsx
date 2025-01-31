@@ -27,6 +27,12 @@ type Control = {
 type ControllerData = Record<string, Control>;
 
 const controllerData = controllerDataJson as ControllerData;
+
+function formatLabel(label:string):string {
+  return label
+      .replace(/_/g, " ")                // Replace underscores with spaces
+}
+
 const DropDownWrapper = ()=>{
     const dispatch = useDispatch()
   const activeTabKey = useSelector((state: RootState) => state.controller.activeTabKey);
@@ -54,9 +60,9 @@ const DropDownWrapper = ()=>{
                       if (!Component) {
                         return <p key={field.name}>Unsupported field type: {field.type}</p>;
                       }
-            
+                      const formattedLabel = formatLabel(field.name);
                       return (
-                        <Form.Item label={field.name} key={field.name}>
+                        <Form.Item label={formattedLabel} key={field.name}>
                           {field.type === "radio" ? (
                             <Radio.Group
                               defaultValue={field.default as string}
