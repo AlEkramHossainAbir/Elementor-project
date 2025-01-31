@@ -20,6 +20,7 @@
   }
 }
 .right-sidebar-container {
+  width: 100%;
     height: 1032px;
     background-color: #e7e7e7;
     background-image: linear-gradient(to right, #ddd 2px, transparent 1px),
