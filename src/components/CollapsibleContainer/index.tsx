@@ -7,9 +7,9 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import React, { useCallback } from "react";
-import { removeCollapseItem } from "../../redux/controllerSlice";
-
+import { useCallback, useEffect, useRef } from "react";
+import { removeCollapseItem, reorderCollapseItems } from "../../redux/controllerSlice";
+import Sortable from "sortablejs";
 
 const CollapsibleContainer= ()=>{
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const CollapsibleContainer= ()=>{
   const activeTabKey = useSelector((state: RootState) => state.controller.activeTabKey);
   const collapseItems = useSelector((state: RootState) => state.controller.currentCollapseItems[activeTabKey] || []);
 
-
+  const collapseRef = useRef<HTMLDivElement>(null);
 
 const handleDelete = (keyToDelete: string) => {
   dispatch(removeCollapseItem({ tabKey: activeTabKey, itemKey: keyToDelete }));
@@ -26,7 +26,26 @@ const handleDelete = (keyToDelete: string) => {
     const collapseOnChange = useCallback((key: string | string[]) => {
         console.log(key);
       },[]);
+      useEffect(() => {
+        if (collapseRef.current) {
+          const sortable = new Sortable(collapseRef.current, {
+            animation: 150,
+            handle: ".draggable-icon", // Only allow dragging when clicking on the icon
+            onEnd: (event: Sortable.SortableEvent) => {
+              const { oldIndex, newIndex } = event;
+              if (oldIndex === newIndex) return;
     
+              const reorderedItems = [...collapseItems];
+              const [movedItem] = reorderedItems.splice(oldIndex, 1);
+              reorderedItems.splice(newIndex, 0, movedItem);
+    
+              dispatch(reorderCollapseItems({ tabKey: activeTabKey, newOrder: reorderedItems }));
+            }
+          });
+    
+          return () => sortable.destroy();
+        }
+      }, [collapseItems, dispatch]);
     const customProps: CollapseProps = {
         className: "custom-controller-collapse",
         expandIcon: (panelProps) => {
@@ -70,6 +89,7 @@ const handleDelete = (keyToDelete: string) => {
           expandIconPosition="end"
           defaultActiveKey={["1"]}
           onChange={collapseOnChange}
+          ref={collapseRef}
           {...customProps}
         />
         </>
