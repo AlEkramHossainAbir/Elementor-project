@@ -39,11 +39,7 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
         layout="horizontal"
         {...dynamicProps}
       >
-        {controlObject.fields.map((field, index) => {
-            console.log(field, index)
-
-          return <GetElement field={field} key={index} />;
-        })}
+        {controlObject.fields.map((field, index) =>  <GetElement field={field} key={index} />)}
       </Form>
     </>
   );

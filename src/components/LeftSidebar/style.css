@@ -11,6 +11,21 @@
     height: 1032px;
     overflow: auto;
     background-color: white;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+      background-color: transparent;
+      color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: #E6E6E6;
+      &:hover {
+          background-color: #D1D1D1;
+      }
+      border-radius: 4px;
+  }
     .header-text-container {
       height: 44px;
       display: flex;
