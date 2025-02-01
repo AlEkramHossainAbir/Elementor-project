@@ -1,5 +1,6 @@
-import { Dropdown, MenuProps } from "antd";
+import { Dropdown, Flex, MenuProps } from "antd";
 import plusIcon from "./../../assets/svgs/plus.svg";
+import dragDropIcon from "./../../assets/svgs/drag&drop.svg";
 import controllerDataJson from "./../../assets/controller.json";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -47,7 +48,10 @@ const DropDownWrapper = ()=>{
               const controlObject = controllerData[controllerKeyName];
               const newCollapseItem = {
                 key: `${activeTabKey}-${new Date().getTime()}`, // More unique and predictable key
-                label: controlObject.control_name || "New Item",
+                label: <Flex gap={10}>
+                  <img src={dragDropIcon} alt="drag and drop icon" className="draggable-icon" />
+                {controlObject.control_name || "New Item"}
+                </Flex>,
                 children: <ComponentRender controlObject={controlObject} />
               };
             

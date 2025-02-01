@@ -9,9 +9,9 @@ export interface ICollapseItemSlice {
 const initialState: ICollapseItemSlice = {
   activeTabKey: "1",
   currentCollapseItems: {
-    "1": [{ key: "1", label: "Control test", children: <p>Content for Control 1</p> }],
-    "2": [{ key: "1", label: "Style 1", children: <p>Content for Style 1</p> }],
-    "3": [{ key: "1", label: "Advanced 1", children: <p>Content for Advanced 1</p> }],
+    "1": [],
+    "2": [],
+    "3": [],
   },
 };
 
@@ -27,7 +27,6 @@ const collapseSlice = createSlice({
       action
     ) => {
       const { tabKey, newItem } = action.payload;
-      console.log("Adding item to Redux:", tabKey, newItem);
 
       state.currentCollapseItems = {
         ...state.currentCollapseItems,
