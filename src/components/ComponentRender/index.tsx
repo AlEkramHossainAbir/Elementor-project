@@ -1,5 +1,4 @@
 import { Form } from "antd";
-import { fieldTypeComponents } from "../FieldTypeMap";
 import { GetElement } from "./helper";
 type ControlField = {
     name: string;
@@ -42,12 +41,6 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
       >
         {controlObject.fields.map((field, index) => {
             console.log(field, index)
-          const Component = fieldTypeComponents[
-            field.type
-          ] as React.ElementType;
-          if (!Component) {
-            return <p key={field.name}>Unsupported field type: {field.type}</p>;
-          }
 
           return <GetElement field={field} key={index} />;
         })}

@@ -1,17 +1,8 @@
-import React from "react";
-import { Input, Switch, Radio, Select, InputNumber, ColorPicker, Upload } from "antd";
+import { Input, Select, InputNumber, ColorPicker, Upload } from "antd";
 import Toggler from "../../libs/Toggler";
+import AntRadio from "../../libs/Radio"
 const { TextArea, Password } = Input;
 
-// Field type to component mapping
-const fieldTypeComponents: Record<string, React.ReactNode> = {
-  text: <Input />,
-  textarea: <Input.TextArea />,
-  switch: <Switch checkedChildren="on" unCheckedChildren="off"  />,
-  radio: <Radio.Group options={[]} />, // Options will be passed dynamically
-  select: <Select options={[]} />, // Options will be passed dynamically
-  number: <InputNumber />
-};
 
 const FormFields = {
 	text: Input,
@@ -20,8 +11,8 @@ const FormFields = {
 	password: Password,
 	number: InputNumber,
 	select: Select,
-	radio: Radio,
-  switch: Toggler,
+	radio: AntRadio,
+  	switch: Toggler,
 	// checkbox: Checkbox,
 	// date: DatePicker,
 	// datetime: DatePicker,
@@ -33,4 +24,4 @@ const FormFields = {
 	hidden: Input,
 	color: ColorPicker,
 };
-export { FormFields, fieldTypeComponents };
+export { FormFields };

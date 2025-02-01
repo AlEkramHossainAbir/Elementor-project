@@ -1,0 +1,13 @@
+.text-row{
+    margin-bottom: 20px;
+}
+.textarea-row{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.switch-row{
+    .ant-form-item-control-input-content{
+        display: flex;
+        justify-content: end;
+    }
+}

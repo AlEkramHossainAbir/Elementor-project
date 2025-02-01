@@ -33,8 +33,8 @@ const handleDelete = (keyToDelete: string) => {
           return (
             <div className="collapse-controller-expand-icon">
               <Popconfirm
-                title="Delete the task"
-                description="Are you sure to delete this task?"
+                title="Delete the Controller"
+                description="Are you sure to delete this Controller?"
                 okText="Yes"
                 cancelText="No"
                 onConfirm={(e) =>{
