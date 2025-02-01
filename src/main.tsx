@@ -22,8 +22,7 @@ const themeConfig ={
       "colorPrimary": "rgb(235,142,251)",
       "colorPrimaryHover": "rgb(234,116,255)",
       "colorTextLightSolid": "rgb(0,0,0)",
-      "borderRadius": 1,
-      "contentFontSize": 13
+      "borderRadius": 1
     }
   }
 };

@@ -69,20 +69,13 @@
     background-color: #fff;
     border-radius: 0px !important;
     height: 80px;
-    display: flex;
     align-items: center !important;
-    padding: 24px;
-    &:first-child {
-      border-radius: 0px;
-    }
+    padding: 24px !important;
   }
   .custom-collapse .ant-collapse-item-active .ant-collapse-header {
     background-color: #fff !important;
   }
   
-  .custom-collapse .ant-collapse-content {
-    background-color: #ffffff;
-  }
   
   .custom-collapse .ant-collapse-content-box {
     background-color: #fff;
@@ -96,12 +89,6 @@
     margin-bottom: 12px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
-  }
-  
-  .custom-collapse .ant-collapse-expand-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .custom-collapse .ant-collapse-header[aria-expanded="true"] {
@@ -126,6 +113,7 @@
       width: 118px;
       font-family: "Roboto", sans-serif;
       font-weight: 500;
+      font-size: 0.93rem;
     }
 
   }
