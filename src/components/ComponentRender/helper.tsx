@@ -56,6 +56,7 @@ export const GetElement = ({ field }:Control): ReactNode => {
         name={formattedLabel}
         label={formattedLabel}
         labelAlign="left"
+        className="form-item-wrapper"
         colon={false}
         layout={(field.type === 'text' || field.type === 'textarea') ? 'vertical' : 'horizontal'} 
       >

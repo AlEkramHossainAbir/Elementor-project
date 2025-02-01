@@ -38,8 +38,14 @@ const collapseSlice = createSlice({
         (item) => item.key !== action.payload.itemKey
       );
     },
+    reorderCollapseItems: (
+      state,
+      action
+    ) => {
+      state.currentCollapseItems[action.payload.tabKey] = action.payload.newOrder;
+    },
   },
 });
 
-export const { setActiveTab, addCollapseItem, removeCollapseItem } = collapseSlice.actions;
+export const { setActiveTab, addCollapseItem, removeCollapseItem,reorderCollapseItems } = collapseSlice.actions;
 export default collapseSlice.reducer;

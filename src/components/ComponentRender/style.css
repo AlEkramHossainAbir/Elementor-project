@@ -11,3 +11,8 @@
         justify-content: end;
     }
 }
+.form-item-wrapper{
+    label{
+        text-transform: capitalize;
+    }
+}
