@@ -31,7 +31,6 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
       <Form
         requiredMark={CustomizeRequiredMark}
         scrollToFirstError={true}
-        // onFinish={submitForm}
         form={form}
         onValuesChange={(currentField) => {
           console.log(currentField);
