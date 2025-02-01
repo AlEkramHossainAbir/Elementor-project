@@ -1,4 +1,7 @@
 .right-sidebar {
+  .ant-tabs-content-holder{
+    background-color: #333;
+  }
   .ant-tabs .ant-tabs-tab{
     padding: 0px !important;
   }
@@ -119,17 +122,10 @@
     }
     .save-btn{
       height: 48px;
-      border-radius: 1px;
       border: none;
-      background-color: #f0abfe;
-    }
-    .save-btn {
       width: 118px;
-      border-right: 1px solid black;
       font-family: "Roboto", sans-serif;
       font-weight: 500;
-      font-size: 13px;
-      color: #101010;
     }
 
   }

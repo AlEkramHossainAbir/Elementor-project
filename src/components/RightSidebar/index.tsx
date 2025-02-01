@@ -174,7 +174,7 @@ const RightSidebar = () => {
   const operations = <div className="right-sidebar-extra-icons">
   <img src={infoIcon} alt="info icon" />
   <img src={previewIcon} alt="preview icon" />
-  <Button className="save-btn">Save Changes</Button>
+  <Button className="save-btn" type="primary">Save Changes</Button>
 </div>
   return (
     <div className="right-sidebar">

@@ -17,6 +17,13 @@ const themeConfig ={
       "colorPrimaryBorder": "rgb(243,186,253)",
       "colorTextQuaternary": "rgb(213,216,220)",
       "colorTextTertiary": "rgb(213,216,220)"
+    },
+    "Button": {
+      "colorPrimary": "rgb(235,142,251)",
+      "colorPrimaryHover": "rgb(234,116,255)",
+      "colorTextLightSolid": "rgb(0,0,0)",
+      "borderRadius": 1,
+      "contentFontSize": 13
     }
   }
 };
