@@ -3,6 +3,7 @@
         "type": "/Elementor/Controls_Manager::TEXT",
         "control_name": "Text Control",
         "has_selector": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-text/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -72,6 +73,7 @@
         "type": "/Elementor/Controls_Manager::NUMBER",
         "control_name": "Number Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-number/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -135,6 +137,7 @@
         "type": "/Elementor/Controls_Manager::TEXTAREA",
         "control_name": "Textarea Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-textarea/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -190,6 +193,7 @@
         "type": "/Elementor/Controls_Manager::WYSIWYG",
         "control_name": "WYSIWYG Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-wysiwyg/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -235,6 +239,7 @@
         "type": "/Elementor/Controls_Manager::CODE",
         "control_name": "Code Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-code/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -290,6 +295,7 @@
         "type": "/Elementor/Controls_Manager::HIDDEN",
         "control_name": "Hidden Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-hidden/",
         "control_category": "Data Control",
         "fields": [
             {
@@ -306,13 +312,9 @@
         "type": "/Elementor/Controls_Manager::SWITCHER",
         "control_name": "Switcher Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-switcher/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "switcher"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -371,13 +373,9 @@
         "type": "/Elementor/Controls_Manager::POPOVER_TOGGLE",
         "control_name": "Popover Toggle Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-popover-toggle/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "popover_toggle"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -431,13 +429,9 @@
         "type": "/Elementor/Controls_Manager::SELECT",
         "control_name": "Select Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-select/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "select"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -486,13 +480,9 @@
         "type": "/Elementor/Controls_Manager::SELECT2",
         "control_name": "Select2 Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-select2/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "select2"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -546,13 +536,9 @@
         "type": "/Elementor/Controls_Manager::COLOR",
         "control_name": "Color Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-color/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "color"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -615,13 +601,9 @@
         "type": "/Elementor/Controls_Manager::FONT",
         "control_name": "Font Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-font/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "font"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -688,13 +670,9 @@
         "type": "/Elementor/Controls_Manager::DATE_TIME",
         "control_name": "Date Time Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-date-time/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "date_time"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -738,13 +716,9 @@
         "type": "/Elementor/Controls_Manager::GALLERY",
         "control_name": "Gallery Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-gallery/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "gallery"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -779,14 +753,10 @@
         "type": "/Elementor/Controls_Manager::REPEATER",
         "control_name": "Repeater Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-repeater/",
         "disabled": true,
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "repeater"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -844,13 +814,9 @@
         "type": "/Elementor/Controls_Manager::ANIMATION",
         "control_name": "Entrance Animation Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-animation/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "animation"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -889,13 +855,9 @@
         "type": "/Elementor/Controls_Manager::EXIT_ANIMATION",
         "control_name": "Exit Animation Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-exit-animation/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "exit_animation"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -934,13 +896,9 @@
         "type": "/Elementor/Controls_Manager::HOVER_ANIMATION",
         "control_name": "Hover Animation Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-hover-animation/",
         "control_category": "Data Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "hover_animation"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -979,13 +937,9 @@
         "type": "/Elementor/Controls_Manager::URL",
         "control_name": "URL Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-url/",
         "control_category": "MultiValue Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "url"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1031,27 +985,23 @@
             },
             {
                 "name": "options",
-                "type": "array",
-                "default": [
+                "type": "select",
+                "options": [
                     "url",
                     "is_external",
                     "nofollow",
                     "custom_attributes"
                 ]
-            }
+            }   
         ]
     },
     "Control_Media": {
         "type": "/Elementor/Controls_Manager::MEDIA",
         "control_name": "Media Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-media/",
         "control_category": "MultiValue Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "media"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1096,13 +1046,9 @@
         "type": "/Elementor/Controls_Manager::ICONS",
         "control_name": "Icons Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-icons/",
         "control_category": "MultiValue Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "icons"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1137,13 +1083,9 @@
         "type": "/Elementor/Controls_Manager::TEXT_SHADOW",
         "control_name": "Text Shadow Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-text-shadow/",
         "control_category": "MultiValue Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "text_shadow"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1192,13 +1134,9 @@
         "type": "/Elementor/Controls_Manager::BOX_SHADOW",
         "control_name": "Box Shadow Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-box-shadow/",
         "control_category": "MultiValue Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "box_shadow"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1247,13 +1185,9 @@
         "type": "/Elementor/Controls_Manager::SLIDER",
         "control_name": "Slider Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-slider/",
         "control_category": "Unit Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "slider"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1330,13 +1264,9 @@
         "type": "/Elementor/Controls_Manager::DIMENSIONS",
         "control_name": "Dimensions Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-dimensions/",
         "control_category": "Unit Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "dimensions"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1396,13 +1326,9 @@
         "type": "/Elementor/Controls_Manager::HEADING",
         "control_name": "Heading Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-heading/",
         "control_category": "UI Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "heading"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1433,13 +1359,9 @@
         "type": "/Elementor/Controls_Manager::RAW_HTML",
         "control_name": "Raw HTML Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-raw-html/",
         "control_category": "UI Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "raw_html"
-            },
             {
                 "name": "label",
                 "type": "text"
@@ -1482,13 +1404,9 @@
         "type": "/Elementor/Controls_Manager::DIVIDER",
         "control_name": "Divider Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-divider/",
         "control_category": "UI Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "divider"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1505,13 +1423,9 @@
         "type": "/Elementor/Controls_Manager::ALERT",
         "control_name": "Alert Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-alert/",
         "control_category": "UI Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "alert"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1547,13 +1461,9 @@
         "type": "/Elementor/Controls_Manager::NOTICE",
         "control_name": "Notice Control",
         "has_selectors": false,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/control-notice/",
         "control_category": "UI Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "string",
-                "default": "notice"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1594,13 +1504,9 @@
         "type": "typography",
         "control_name": "Typography Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-typography/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "typography"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1631,13 +1537,9 @@
         "type": "text-stroke",
         "control_name": "Text Stroke Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-text-stroke/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "text-stroke"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1668,13 +1570,9 @@
         "type": "text-shadow",
         "control_name": "Text Shadow Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-text-shadow/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "text-shadow"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1705,13 +1603,9 @@
         "type": "box-shadow",
         "control_name": "Box Shadow Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-box-shadow/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "box-shadow"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1742,13 +1636,9 @@
         "type": "border",
         "control_name": "Border Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-border/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "border"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1779,13 +1669,9 @@
         "type": "background",
         "control_name": "Background Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-background/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "background"
-            },
             {
                 "name": "separator",
                 "type": "radio",
@@ -1826,13 +1712,9 @@
         "type": "custom_css_filters",
         "control_name": "CSS Filter Group Control",
         "has_selectors": true,
+        "doc_url": "https://developers.elementor.com/docs/editor-controls/group-control-css-filter/",
         "control_category": "Group Control",
         "fields": [
-            {
-                "name": "type",
-                "type": "text",
-                "default": "typography"
-            },
             {
                 "name": "separator",
                 "type": "radio",
