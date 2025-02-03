@@ -1,8 +1,9 @@
 import { Col, Form, Input, Row } from "antd";
 import { GetElement } from "./helper";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import "./style.css";
+import { updateFormData } from "../../redux/formSlice";
 
 type ControlField = {
   name: string;
@@ -28,6 +29,8 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
     (state: RootState) => state.selectedController.selectedController
   );
 
+  const dispatch = useDispatch();
+
   const [form] = Form.useForm();
   const dynamicProps = {
     labelCol: { span: 8 },
@@ -40,18 +43,29 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
         requiredMark={CustomizeRequiredMark}
         scrollToFirstError={true}
         form={form}
-        onValuesChange={(currentField) => {
-          console.log(currentField, selectedController);
-        }}
+        onValuesChange={(changedValues,allValues) => {
+          if (changedValues.dataKey !== undefined) {
+            const sanitizedValue = changedValues.dataKey.toLowerCase().replace(/[^a-z0-9_]/g, '');
+            form.setFieldsValue({ dataKey: sanitizedValue }); // Update form state
+          }
+          
+          dispatch(
+            updateFormData({
+              controlName: selectedController,
+              dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
+              ...allValues, // Include other dynamic fields
+            })
+          );
+          }}
         layout="horizontal"
         {...dynamicProps}
       >
         <Row align='top' className='text-row' >
         <Col span={24}>
         <Form.Item
-          label="Custom-key"
-          name="customKey"
-          rules={[{ required: true, message: "Please input your data!" }]}
+          label="Data key"
+          name="dataKey"
+          // rules={[{ required: true, message: "Please input your data!" }]}
           labelAlign="left"
           className="form-item-wrapper"
           colon={false}

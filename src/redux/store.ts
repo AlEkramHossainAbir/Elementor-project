@@ -3,13 +3,15 @@ import toggleReducer from './toggleSlice';
 import controllerReducer from './controllerSlice'
 import codeReducer from './codeSlice';
 import selectedControllerReducer from './controllerNameSlice';
+import formDataReducer from './formSlice';
 
 const store = configureStore({
   reducer: {
     toggle: toggleReducer,
     controller: controllerReducer,
     code:codeReducer,
-    selectedController: selectedControllerReducer
+    selectedController: selectedControllerReducer,
+    formData: formDataReducer,
   },
 });
 
