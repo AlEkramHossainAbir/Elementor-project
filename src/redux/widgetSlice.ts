@@ -2,13 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Define the initial state
 interface WidgetState {
-  widgets: any[];
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-}
+    widgets: any[];
+    widgetDetails: Record<number, any>; // Stores details for each widget by ID
+    status: "idle" | "loading" | "succeeded" | "failed";
+    error: string | null;
+  }
 
 const initialState: WidgetState = {
   widgets: [],
+  widgetDetails: {},
   status: "idle",
   error: null,
 };
@@ -17,6 +19,7 @@ const initialState: WidgetState = {
 const LIST_URL = xyz_builder_widget_env.restApi.list.url;
 const ADD_URL = xyz_builder_widget_env.restApi.create.url;
 const CHANGE_ACTIVE_URL  = xyz_builder_widget_env.restApi.changeActive.url;
+const DETAILS_URL = xyz_builder_widget_env.restApi.details.url;
 
 /** 
  * 🔹 Async thunk to **fetch widget data** 
@@ -26,6 +29,25 @@ export const fetchWidgets = createAsyncThunk("widgets/fetchWidgets", async () =>
   const data = await response.json();
   return data.data; // Extract only the `data` array
 });
+
+
+/**
+ * 🔹 Fetch Widget Details (for a single widget)
+ */
+export const fetchWidgetDetails = createAsyncThunk(
+    "widgets/fetchWidgetDetails",
+    async (widgetId: number, { rejectWithValue }) => {
+      try {
+        const response = await fetch(`${DETAILS_URL}/${widgetId}`);
+        if (!response.ok) throw new Error("Failed to fetch widget details");
+  
+        const data = await response.json();
+        return { widgetId, details: data.data };
+      } catch (error: any) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );
 
 /** 
  * 🔹 Async thunk to **add a new widget**  
@@ -92,10 +114,15 @@ const widgetSlice = createSlice({
         state.error = action.error.message ?? "Failed to fetch widgets";
       })
       
+      .addCase(fetchWidgetDetails.fulfilled, (state, action) => {
+        const { widgetId, details } = action.payload;
+        state.widgetDetails[widgetId] = details;
+      })
+
       .addCase(addWidget.fulfilled, (state, action) => {
         state.widgets.push(action.payload);
       })
-      
+
       .addCase(toggleWidgetStatus.fulfilled, (state, action) => {
         const { widgetId, isActive } = action.payload;
         const widget = state.widgets.find((w) => w.id === widgetId);

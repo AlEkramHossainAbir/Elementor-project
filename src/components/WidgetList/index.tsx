@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select } from "antd";
 import { RootState,AppDispatch} from "../../redux/store";
-import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetSlice";
+import { addWidget, fetchWidgetDetails, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetSlice";
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
 const WidgetList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { widgets, status } = useSelector((state: RootState) => state.widgets);
+  const { widgets, status, widgetDetails } = useSelector((state: RootState) => state.widgets);
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -45,6 +45,16 @@ const WidgetList: React.FC = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  const openDetailsModal = (widgetId: number) => {
+    console.log(widgetId)
+    // setSelectedWidgetId(widgetId);
+    dispatch(fetchWidgetDetails(widgetId));
+  };
+  useEffect(()=>{
+    console.log(widgetDetails)
+  },[widgetDetails])
+
   return (
     <div style={{ padding: "20px", margin: "auto" }}>
       <Title level={3}>Widget List</Title>
@@ -61,7 +71,7 @@ const WidgetList: React.FC = () => {
           <p>Loading...</p>
         ) : (
           widgets.map((widget) => (
-            <Col key={widget.id} span={6}>
+            <Col key={widget.id} span={6} onClick={() => openDetailsModal(widget.id)}>
               <Card>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span>{widget.title}</span>
