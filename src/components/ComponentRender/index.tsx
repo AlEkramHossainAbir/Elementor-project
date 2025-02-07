@@ -47,7 +47,6 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
   }, [dispatch, form]);
 
   const onFinish = (values: FormData[]) => {
-    console.log("Form Submitted:", values);
     dispatch(
       updateFormData({
         controlName: selectedController,

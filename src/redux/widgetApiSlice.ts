@@ -105,7 +105,6 @@ export const addWidget = createAsyncThunk(
 export const toggleWidgetStatus = createAsyncThunk(
     "widgets/toggleWidgetStatus",
     async ({ widgetId, isActive }: { widgetId: number; isActive: boolean }, { rejectWithValue }) => {
-        console.log("isActive",isActive,widgetId)
       try {
         const response = await fetch(`${CHANGE_ACTIVE_URL}/${widgetId}`, {
           method: "POST",

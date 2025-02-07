@@ -4,6 +4,7 @@ interface FormState {
   [key: string]: {
     controlName: string;
     dataKey: string;
+    tabId: string;
     [key: string]: string|undefined; // Allow dynamic key-value pairs
   };
 }
@@ -18,8 +19,8 @@ const formSlice = createSlice({
       state,
       action
     ) => {
-      const { dataKey, controlName, ...otherValues } = action.payload;
-      state[dataKey] = { controlName, dataKey, ...otherValues }; // Store all values
+      const { dataKey, tabId, controlName, ...otherValues } = action.payload;
+      state[dataKey] = { controlName, tabId, dataKey, ...otherValues }; // Store all values
     },
   },
 });
