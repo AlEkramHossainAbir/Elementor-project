@@ -13,6 +13,11 @@ import { RootState } from "../../redux/store";
 const RightSidebar = () => {
   const formData = useSelector((state:RootState) => state.formData);
   const codeData = useSelector((state:RootState) => state.code.codeByTab);
+  const { widgetDetails } = useSelector((state: RootState) => state.widgets);
+  const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
+
+  console.log(selectedWidgetId && widgetDetails[selectedWidgetId])
+
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
@@ -181,7 +186,8 @@ const RightSidebar = () => {
   ];
   const operations = <div className="right-sidebar-extra-icons">
   <img src={infoIcon} alt="info icon" />
-  <img src={previewIcon} alt="preview icon" />
+  <a href={selectedWidgetId && widgetDetails[selectedWidgetId]?.livePreview}><img src={previewIcon} alt="preview icon" /></a>
+  
   <Button className="save-btn" type="primary" onClick={submitResponse}>Save Changes</Button>
 </div>
   return (

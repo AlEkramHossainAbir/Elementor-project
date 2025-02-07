@@ -4,11 +4,12 @@ import { RootState } from "../../redux/store";
 import { updateCode } from "../../redux/codeSlice";
 interface CodeEditorProps {
   language: string;
+  code: string;
 }
-const CodeEditor: React.FC<CodeEditorProps> = ({ language }) => {
+const CodeEditor: React.FC<CodeEditorProps> = ({ language, code }) => {
   const dispatch = useDispatch();
   const activeTabCode = useSelector((state: RootState) => state.code.activeTab);
-  const code = useSelector((state: RootState) => state.code.codeByTab[activeTabCode] || "");
+  // const code = useSelector((state: RootState) => state.code.codeByTab[activeTabCode] || "");
   
   const handleChange = (newValue: string | undefined) => {
     dispatch(updateCode({ tab: activeTabCode, code: newValue || "" }));
@@ -18,7 +19,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language }) => {
     <div style={{ height: "1032px", backgroundColor: "#000 " }}>
       <Editor
         height="100%"
-        language={language}
+        language={language || ""}
         defaultValue="// Start coding here..."
         value={code}
         theme="vs-dark" // You can also use "light" theme

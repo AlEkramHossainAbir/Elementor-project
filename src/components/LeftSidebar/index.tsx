@@ -20,9 +20,6 @@ const LeftSidebar = () => {
   const dispatch = useDispatch();
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
   const { activeTabKey } = useSelector((state: RootState) => state.controller);
-  const { widgetDetails } = useSelector((state: RootState) => state.widgets);
-  const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
-  console.log( selectedWidgetId && widgetDetails[selectedWidgetId])
 
   const tabItems: TabsProps["items"] = useMemo(()=> [
     {

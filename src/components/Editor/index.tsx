@@ -12,12 +12,25 @@ import { setActiveTabCode } from "../../redux/codeSlice";
 const Editor = () => {
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.code.activeTab);
+  const { widgetDetails } = useSelector((state: RootState) => state.widgets);
+  const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
 
   const items: TabsProps["items"] = [
-    { key: "HTML", label: "HTML", children: <CodeEditor language="html" /> },
-    { key: "CSS", label: "CSS", children: <CodeEditor language="css" /> },
-    { key: "JS", label: "JS", children: <CodeEditor language="javascript" /> },
-    { key: "Settings",label: "Settings",children: "Content of Tab Pane 4  "}
+    { key: "HTML", label: "HTML", children: <CodeEditor language="html" code={`<h1>Hello world </h1>`} /> },
+    { key: "CSS", label: "CSS", children: <CodeEditor language="css" code={selectedWidgetId && widgetDetails[selectedWidgetId]?.css || ""} /> },
+    { key: "JS", label: "JS", children: <CodeEditor language="javascript" code={selectedWidgetId && widgetDetails[selectedWidgetId]?.js || ""} /> },
+    { key: "Settings",label: "Settings",children: (
+      <>
+      {
+        selectedWidgetId && widgetDetails[selectedWidgetId]?.settings && Object.keys(widgetDetails[selectedWidgetId]?.settings).map((setting: string) => (
+          <div key={setting} style={{background: '#fff'}}>
+            <div>{setting}</div>
+            <div>{widgetDetails[selectedWidgetId]?.settings[setting]}</div>
+          </div>
+        ))
+      }
+      </>
+    )}
   ];
 
   const onChange = (key: string) => {
