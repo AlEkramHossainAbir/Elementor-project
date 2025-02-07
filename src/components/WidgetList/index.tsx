@@ -36,7 +36,6 @@ const WidgetList: React.FC = () => {
     form
       .validateFields()
       .then((values) => {
-        console.log(values)
         dispatch(addWidget(values))
         setIsModalOpen(false);
         form.resetFields();
@@ -112,9 +111,9 @@ const WidgetList: React.FC = () => {
           rules={[{ required: true, message: "Please select an icon" }]}
         >
           <Select placeholder="Select an icon" options={[
-            { label: <img src={editIcon} alt="edit icon" />, value: <img src={editIcon} alt="edit icon" /> },
-            { label: <img src={settingIcon} alt="edit icon" />, value: <img src={settingIcon} alt="edit icon" /> },
-            { label: <img src={bucketIcon} alt="edit icon" />, value: <img src={bucketIcon} alt="edit icon" /> },
+            { label: <img src={editIcon} alt="edit icon" />, value: "edit Icon" },
+            { label: <img src={settingIcon} alt="edit icon" />, value: "Settings Icon" },
+            { label: <img src={bucketIcon} alt="edit icon" />, value: "Bucket Icon" },
           ]} />
           
         </Form.Item>

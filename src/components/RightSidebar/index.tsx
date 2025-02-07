@@ -47,7 +47,7 @@ const RightSidebar = () => {
         css: codeData?.CSS,
         js: codeData?.JS,
       };
-  
+      
       dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));// Step 2: Dispatch storing the widget
     }, 500); 
   }

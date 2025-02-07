@@ -64,36 +64,33 @@ const Editor = () => {
           {selectedWidgetId &&
             widgetDetails[selectedWidgetId]?.settings &&
             Object.keys(widgetDetails[selectedWidgetId]?.settings).map(
-              (setting: string) =>{
-                console.log(setting,widgetDetails[selectedWidgetId]?.settings[setting])
-                return  (
-                  <Form
-                    key={setting}
-                    form={form}
-                    onFinish={onFinish}
-                    layout="horizontal"
-                  >
-                    <Row align="top" className="text-row">
-                      <Col span={24}>
-                        <Form.Item
-                          label={setting}
-                          name={setting}
-                          labelAlign="left"
-                          className="form-item-wrapper"
-                          colon={false}
-                          layout="vertical"
-                        >
-                          <Input
-                            defaultValue={
-                              widgetDetails[selectedWidgetId]?.settings[setting] || ""
-                            }
-                          />
-                        </Form.Item>
-                      </Col>
-                    </Row>
-                  </Form>
-                )
-              }
+              (setting: string) =>(
+                <Form
+                  key={setting}
+                  form={form}
+                  onFinish={onFinish}
+                  layout="horizontal"
+                >
+                  <Row align="top" className="text-row">
+                    <Col span={24}>
+                      <Form.Item
+                        label={setting}
+                        name={setting}
+                        labelAlign="left"
+                        className="form-item-wrapper"
+                        colon={false}
+                        layout="vertical"
+                      >
+                        <Input
+                          defaultValue={
+                            widgetDetails[selectedWidgetId]?.settings[setting] || ""
+                          }
+                        />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                </Form>
+              )
             )}
         </div>
       ),
