@@ -1,9 +1,9 @@
 import { Col, Form, Input, Row, Tabs, TabsProps } from "antd";
 import chevronLeft from "./../../assets/svgs/chevronLeft.svg";
+import chevronRight from "./../../assets/svgs/chevronRight.svg";
 import "./style.css";
 import CodeEditor from "../CodeEditor";
 import { useDispatch, useSelector } from "react-redux";
-// import { RootState } from "../../redux/store";
 import { toggleContent } from "../../redux/toggleSlice";
 import { RootState } from "../../redux/store";
 import { setActiveTabCode } from "../../redux/codeSlice";
@@ -12,6 +12,7 @@ const Editor = () => {
   const dispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.code.activeTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
+  const {showContent} = useSelector((state: RootState) => state.toggle)
   const { selectedWidgetId } = useSelector(
     (state: RootState) => state.widgetModal
   );
@@ -108,8 +109,8 @@ const Editor = () => {
           dispatch(toggleContent());
         }}
       >
-        {" "}
-        <img src={chevronLeft} alt="collapse icon" />
+        {showContent ? <img src={chevronRight} alt="chevron Right" /> : <img src={chevronLeft} alt="collapse icon" />}
+        
       </div>
       <Tabs activeKey={activeTab} items={items} onChange={onChange} />
     </div>

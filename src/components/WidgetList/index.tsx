@@ -37,6 +37,7 @@ const WidgetList: React.FC = () => {
       .validateFields()
       .then((values) => {
         dispatch(addWidget(values))
+        .then(response=> openDetailsModal(response.payload.id))
         setIsModalOpen(false);
         form.resetFields();
       })
