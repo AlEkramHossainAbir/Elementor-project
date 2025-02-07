@@ -4,6 +4,7 @@ import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select 
 import { RootState,AppDispatch} from "../../redux/store";
 import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
 import { openModal } from "../../redux/widgetModalSlice";
+import "./style.css"
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -60,7 +61,7 @@ const WidgetList: React.FC = () => {
       <Row gutter={[16, 16]}>
         {/* Create New Button */}
         <Col span={6}>
-          <Card style={{ textAlign: "center", height: "100%", cursor:'pointer' }} onClick={showModal}>
+          <Card className="create-new-btn" style={{ textAlign: "center", height: "100%", cursor:'pointer' }} onClick={showModal}>
             Create New
           </Card>
         </Col>
@@ -73,10 +74,7 @@ const WidgetList: React.FC = () => {
             <Col key={widget.id} span={6}>
               <Card>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{
-                    cursor: "pointer",
-
-                  }}
+                  <span className="linkable-text"
                   onClick={() => openDetailsModal(widget.id)}>{widget.title}</span>
                   <Switch
                    checked={widget.isActive}

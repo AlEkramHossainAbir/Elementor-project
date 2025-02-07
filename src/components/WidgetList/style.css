@@ -1,0 +1,23 @@
+.ant-card{
+    border-radius: 4px;
+}
+.ant-card-body{
+    color: black;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.create-new-btn{
+    background-color: #5148EA;
+    .ant-card-body{
+        color: white;
+        font-weight: 600;
+    }
+}
+.linkable-text{
+    color: black;
+    cursor: pointer;
+    &:hover{
+        color: #5148EA;
+    }
+}
