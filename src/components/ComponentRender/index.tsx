@@ -33,6 +33,7 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
   const selectedController = useSelector(
     (state: RootState) => state.selectedController.selectedController
   );
+  const {activeTabKey} = useSelector((state: RootState) => state.controller);
 
   const dispatch = useDispatch();
 
@@ -50,11 +51,13 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
     dispatch(
       updateFormData({
         controlName: selectedController,
+        tabId: activeTabKey,
         dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
         ...values, // Include other dynamic fields
       })
     );
   };
+  console.count()
   return (
     <>
       <Form

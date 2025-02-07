@@ -34,7 +34,7 @@ export const storeWidget = createAsyncThunk(
       const response = await fetch(`${STORE_URL}/${widgetId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(widgetData),
+        body: widgetData,
       });
 
       if (!response.ok) throw new Error("Failed to store widget");
