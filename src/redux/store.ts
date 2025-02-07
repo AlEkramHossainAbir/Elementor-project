@@ -5,6 +5,7 @@ import codeReducer from './codeSlice';
 import selectedControllerReducer from './controllerNameSlice';
 import formDataReducer from './formSlice';
 import widgetReducer from './widgetSlice';
+import widgetModalReducer from './widgetModalSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     selectedController: selectedControllerReducer,
     formData: formDataReducer,
     widgets: widgetReducer,
+    widgetModal: widgetModalReducer,
   },
 });
 

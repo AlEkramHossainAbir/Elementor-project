@@ -12,6 +12,7 @@ import DropDownWrapper from "../DropDown";
 import { setActiveTab } from "../../redux/controllerSlice";
 import CollapsibleContainer from "../CollapsibleContainer";
 import { useCallback, useMemo } from "react";
+import { closeModal } from "../../redux/widgetModalSlice";
 
 
 
@@ -19,6 +20,9 @@ const LeftSidebar = () => {
   const dispatch = useDispatch();
   const showContent = useSelector((state: RootState) => state.toggle.showContent);
   const { activeTabKey } = useSelector((state: RootState) => state.controller);
+  const { widgetDetails } = useSelector((state: RootState) => state.widgets);
+  const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
+  console.log( selectedWidgetId && widgetDetails[selectedWidgetId])
 
   const tabItems: TabsProps["items"] = useMemo(()=> [
     {
@@ -67,7 +71,7 @@ const LeftSidebar = () => {
       <Navbar>
         <div className="wordpress-logo">
         {!showContent &&( <div className="left-icon-wrapper">
-          <img src={wordpressImage} alt="wordpress_image" />
+          <img src={wordpressImage} alt="wordpress_image" style={{cursor:'pointer'}} onClick={()=>dispatch(closeModal())} />
           <DropDownWrapper />
           </div>)}
         </div>
