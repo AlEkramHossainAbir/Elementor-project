@@ -57,7 +57,7 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
       })
     );
   };
-  console.count()
+
   return (
     <>
       <Form

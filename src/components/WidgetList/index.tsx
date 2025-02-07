@@ -5,6 +5,9 @@ import { RootState,AppDispatch} from "../../redux/store";
 import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
 import { openModal } from "../../redux/widgetModalSlice";
 import "./style.css"
+import editIcon from "./../../assets/svgs/edit-pen.svg";
+import settingIcon from "./../../assets/svgs/setting-wheel.svg";
+import bucketIcon from "./../../assets/svgs/bucket.svg";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -109,9 +112,9 @@ const WidgetList: React.FC = () => {
           rules={[{ required: true, message: "Please select an icon" }]}
         >
           <Select placeholder="Select an icon" options={[
-            { label: "Icon 1", value: "icon1" },
-            { label: "Icon 2", value: "icon2" },
-            { label: "Icon 3", value: "icon3" },
+            { label: <img src={editIcon} alt="edit icon" />, value: <img src={editIcon} alt="edit icon" /> },
+            { label: <img src={settingIcon} alt="edit icon" />, value: <img src={settingIcon} alt="edit icon" /> },
+            { label: <img src={bucketIcon} alt="edit icon" />, value: <img src={bucketIcon} alt="edit icon" /> },
           ]} />
           
         </Form.Item>
