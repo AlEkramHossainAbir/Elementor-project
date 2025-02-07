@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from "./redux/store";
 import BuilderWrapper from "./components/BuilderWrapper";
 import { Modal } from "antd";
 import { useEffect } from "react";
-import { fetchWidgetDetails } from "./redux/widgetSlice";
+import { fetchWidgetDetails } from "./redux/widgetApiSlice";
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>(); 

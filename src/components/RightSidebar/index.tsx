@@ -10,6 +10,8 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { submitForm } from "../../redux/formInstanceSlice";
+import { useEffect } from "react";
+import { storeWidget } from "../../redux/widgetApiSlice";
 
 const RightSidebar = () => {
   const dispatch = useDispatch()
@@ -23,10 +25,36 @@ const RightSidebar = () => {
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
-  const submitResponse = () => {
-    console.log(formData,codeData)
-  }
 
+  const submitResponse = () => {
+    dispatch(submitForm())
+    setTimeout(() => {
+      if (!selectedWidgetId) {
+        console.error("No widget selected!");
+        return;
+      }
+      const widgetData = {
+        description: "A custom Elementor heading widget with advanced styling options",
+        markup: codeData?.HTML,
+        icon: "",
+        controls: formData,
+        settings: {
+          title: formData.title ?? "Default Heading",
+          description: formData.description ?? "Default description text",
+          icon: formData.icon ?? "",
+          category: formData.category ?? "",
+        },
+        css: codeData?.CSS,
+        js: codeData?.JS,
+      };
+  
+      dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));// Step 2: Dispatch storing the widget
+    }, 500); 
+  }
+  useEffect(() => {
+    console.log("Updated formData:", formData);
+    console.log("Updated codeData:", codeData?.HTML,codeData?.CSS,codeData?.JS);
+  }, [formData, codeData]); // Runs when Redux updates
 
   const getIframeContent = (htmlContent: string) => `
   <!DOCTYPE html>
@@ -190,7 +218,7 @@ const RightSidebar = () => {
   <img src={infoIcon} alt="info icon" />
   <a href={selectedWidgetId && widgetDetails[selectedWidgetId]?.livePreview}><img src={previewIcon} alt="preview icon" /></a>
   
-  <Button className="save-btn" type="primary" onClick={() => dispatch(submitForm())}>Save Changes</Button>
+  <Button className="save-btn" type="primary" onClick={submitResponse}>Save Changes</Button>
 </div>
   return (
     <div className="right-sidebar">

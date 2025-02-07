@@ -22,6 +22,31 @@ const LIST_URL = xyz_builder_widget_env.restApi.list.url;
 const ADD_URL = xyz_builder_widget_env.restApi.create.url;
 const CHANGE_ACTIVE_URL  = xyz_builder_widget_env.restApi.changeActive.url;
 const DETAILS_URL = xyz_builder_widget_env.restApi.details.url;
+const STORE_URL = xyz_builder_widget_env.restApi.store.url;
+
+/** 
+ * 🔹 Async thunk to **store a new widget**  
+ */
+export const storeWidget = createAsyncThunk(
+  "widgets/storeWidget",
+  async ({ widgetId, widgetData }: { widgetId: number; widgetData: any }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`${STORE_URL}/${widgetId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(widgetData),
+      });
+
+      if (!response.ok) throw new Error("Failed to store widget");
+
+      const storedWidget = await response.json();
+      return storedWidget.data; // Assuming API response contains `data`
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 
 /** 
  * 🔹 Async thunk to **fetch widget data** 
@@ -129,7 +154,13 @@ const widgetSlice = createSlice({
         const { widgetId, isActive } = action.payload;
         const widget = state.widgets.find((w) => w.id === widgetId);
         if (widget) widget.isActive = isActive;
-      });
+      })
+      .addCase(storeWidget.fulfilled, (state, action) => {
+        state.widgets.push(action.payload);
+      })
+      .addCase(storeWidget.rejected, (state, action) => {
+        state.error = action.payload as string;
+      })
   },
 });
 

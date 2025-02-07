@@ -4,7 +4,7 @@ import controllerReducer from './controllerSlice'
 import codeReducer from './codeSlice';
 import selectedControllerReducer from './controllerNameSlice';
 import formDataReducer from './formSlice';
-import widgetReducer from './widgetSlice';
+import widgetReducer from './widgetApiSlice';
 import widgetModalReducer from './widgetModalSlice';
 import formInstanceReducer from './formInstanceSlice'
 

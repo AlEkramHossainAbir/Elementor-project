@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select } from "antd";
 import { RootState,AppDispatch} from "../../redux/store";
-import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetSlice";
+import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
 import { openModal } from "../../redux/widgetModalSlice";
 
 const { Title } = Typography;
