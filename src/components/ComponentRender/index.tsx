@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import "./style.css";
 import { updateFormData } from "../../redux/formSlice";
+import { useEffect } from "react";
+import { setFormInstance } from "../../redux/formInstanceSlice";
 
 type ControlField = {
   name: string;
@@ -14,6 +16,9 @@ type ControlField = {
 type Control = {
   fields: ControlField[];
 };
+interface FormData {
+  [key: string]: string;
+}
 
 export const CustomizeRequiredMark = (
   label: React.ReactNode,
@@ -36,26 +41,34 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
     labelCol: { span: 8 },
     // ...(isDisabled && { onValuesChange: () => setIsDisabled(false) })
   };
+  useEffect(() => {
+    dispatch(setFormInstance(form));
+  }, [dispatch, form]);
 
+  const onFinish = (values: FormData[]) => {
+    console.log("Form Submitted:", values);
+    dispatch(
+      updateFormData({
+        controlName: selectedController,
+        dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
+        ...values, // Include other dynamic fields
+      })
+    );
+  };
   return (
     <>
       <Form
         requiredMark={CustomizeRequiredMark}
         scrollToFirstError={true}
         form={form}
-        onValuesChange={(changedValues,allValues) => {
+        onFinish={onFinish}
+        onValuesChange={(changedValues) => {
           if (changedValues.dataKey !== undefined) {
             const sanitizedValue = changedValues.dataKey.toLowerCase().replace(/[^a-z0-9_]/g, '');
             form.setFieldsValue({ dataKey: sanitizedValue }); // Update form state
           }
           
-          dispatch(
-            updateFormData({
-              controlName: selectedController,
-              dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
-              ...allValues, // Include other dynamic fields
-            })
-          );
+         
           }}
         layout="horizontal"
         {...dynamicProps}

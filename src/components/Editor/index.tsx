@@ -16,7 +16,7 @@ const Editor = () => {
   const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
 
   const items: TabsProps["items"] = [
-    { key: "HTML", label: "HTML", children: <CodeEditor language="html" code={`<h1>Hello world </h1>`} /> },
+    { key: "HTML", label: "HTML", children: <CodeEditor language="html" code={selectedWidgetId && widgetDetails[selectedWidgetId]?.markup || ""} /> },
     { key: "CSS", label: "CSS", children: <CodeEditor language="css" code={selectedWidgetId && widgetDetails[selectedWidgetId]?.css || ""} /> },
     { key: "JS", label: "JS", children: <CodeEditor language="javascript" code={selectedWidgetId && widgetDetails[selectedWidgetId]?.js || ""} /> },
     { key: "Settings",label: "Settings",children: (

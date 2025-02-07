@@ -7,10 +7,12 @@ import minusIcon from "./../../assets/svgs/minus_icon.svg";
 import previewIcon from "./../../assets/svgs/preview-icon.svg";
 import infoIcon from "./../../assets/svgs/info-icon.svg";
 import "./style.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { submitForm } from "../../redux/formInstanceSlice";
 
 const RightSidebar = () => {
+  const dispatch = useDispatch()
   const formData = useSelector((state:RootState) => state.formData);
   const codeData = useSelector((state:RootState) => state.code.codeByTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
@@ -188,7 +190,7 @@ const RightSidebar = () => {
   <img src={infoIcon} alt="info icon" />
   <a href={selectedWidgetId && widgetDetails[selectedWidgetId]?.livePreview}><img src={previewIcon} alt="preview icon" /></a>
   
-  <Button className="save-btn" type="primary" onClick={submitResponse}>Save Changes</Button>
+  <Button className="save-btn" type="primary" onClick={() => dispatch(submitForm())}>Save Changes</Button>
 </div>
   return (
     <div className="right-sidebar">

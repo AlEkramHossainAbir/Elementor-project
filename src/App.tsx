@@ -17,7 +17,7 @@ const App = () => {
       dispatch(fetchWidgetDetails(selectedWidgetId));
     }
   }, [selectedWidgetId, dispatch]);
-
+ 
   return (
     <div id="xyz-widget-builder">
       <WidgetList />
