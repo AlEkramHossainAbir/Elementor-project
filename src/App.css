@@ -51,6 +51,9 @@
     background-color: transparent !important;
     padding: 0;
     box-shadow: none;
+    .ant-modal-close{
+      display: none;
+    }
   }
   .ant-modal{
     width: 100% !important;
