@@ -8,13 +8,13 @@ import previewIcon from "./../../assets/svgs/preview-icon.svg";
 import infoIcon from "./../../assets/svgs/info-icon.svg";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import { submitForm } from "../../redux/formInstanceSlice";
 import { useEffect } from "react";
 import { storeWidget } from "../../redux/widgetApiSlice";
 
 const RightSidebar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
   const formData = useSelector((state:RootState) => state.formData);
   const codeData = useSelector((state:RootState) => state.code.codeByTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
