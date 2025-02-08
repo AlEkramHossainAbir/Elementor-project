@@ -7,7 +7,7 @@ import chevronDown from "./../../assets/svgs/chevronDown.svg";
 import cancelCrossIcon from "./../../assets/svgs/cancelCross.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { removeCollapseItem, reorderCollapseItems } from "../../redux/controllerSlice";
 import Sortable from "sortablejs";
 
@@ -23,9 +23,7 @@ const handleDelete = (keyToDelete: string) => {
   dispatch(removeCollapseItem({ tabKey: activeTabKey, itemKey: keyToDelete }));
 };
   
-    const collapseOnChange = useCallback((key: string | string[]) => {
-        console.log(key);
-      },[]);
+
       useEffect(() => {
         if (collapseRef.current) {
           const sortable = new Sortable(collapseRef.current, {
@@ -88,7 +86,7 @@ const handleDelete = (keyToDelete: string) => {
           items={collapseItems}
           expandIconPosition="end"
           defaultActiveKey={["1"]}
-          onChange={collapseOnChange}
+          onChange={()=>{}}
           ref={collapseRef}
           {...customProps}
         />

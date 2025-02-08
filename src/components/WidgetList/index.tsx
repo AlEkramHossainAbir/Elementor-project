@@ -90,12 +90,12 @@ const WidgetList: React.FC = () => {
       dispatch(fetchWidgetDetails(widgetId))
       .then((response: unknown)=> {
         const controls = (response as WidgetResponse).payload?.details?.controls || {};
-
+        
         // Convert controls object into an array of newCollapseItem objects
         const newCollapseItems = Object.values(controls).map((control) => {
           const { dataKey, controlName, tabId } = control;
           const controlObject = controllerData[controlName];
-          console.log("control",control)
+         
           return ({
             key: dataKey,       // Use dataKey as key
             label: <Flex gap={10}>
@@ -107,7 +107,6 @@ const WidgetList: React.FC = () => {
           })
         });
 
-        
         newCollapseItems.forEach(({tabKey,...newItem}) => {
           dispatch(
             addCollapseItem({
