@@ -16,7 +16,7 @@ type ControlField = {
 type Control = {
   fields: ControlField[];
 };
-interface FormData {
+export interface FormData {
   [key: string]: string;
 }
 
@@ -29,7 +29,7 @@ export const CustomizeRequiredMark = (
     {required && <span style={{ color: "red", marginLeft: 2 }}>*</span>}
   </>
 );
-const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
+const ComponentRender = ({ controlObject, initialData }: { controlObject: Control, initialData?:FormData }) => {
   const selectedController = useSelector(
     (state: RootState) => state.selectedController.selectedController
   );
@@ -72,6 +72,7 @@ const ComponentRender = ({ controlObject }: { controlObject: Control }) => {
           
          
           }}
+        initialValues={initialData}
         layout="horizontal"
         {...dynamicProps}
       >

@@ -12,7 +12,7 @@ import dragDropIcon from "./../../assets/svgs/drag&drop.svg";
 import controllerDataJson from "./../../assets/controller.json";
 
 import { addCollapseItem } from "../../redux/controllerSlice";
-import ComponentRender from "../ComponentRender";
+import ComponentRender, { FormData } from "../ComponentRender";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -37,15 +37,8 @@ type ControllerData = Record<string, Control>;
 
 const controllerData = controllerDataJson as ControllerData;
 
-
-interface ControlWidget {
-  dataKey: string;
-  controlName: string;
-  tabId: string;
-}
-
 interface WidgetDetails {
-  controls: Record<string, ControlWidget>;
+  controls: Record<string, FormData>;
 }
 
 interface WidgetResponse {
@@ -99,22 +92,23 @@ const WidgetList: React.FC = () => {
         const controls = (response as WidgetResponse).payload?.details?.controls || {};
 
         // Convert controls object into an array of newCollapseItem objects
-        const newCollapseItems = Object.values(controls).map(({ dataKey, controlName, tabId }) => {
+        const newCollapseItems = Object.values(controls).map((control) => {
+          const { dataKey, controlName, tabId } = control;
           const controlObject = controllerData[controlName];
+          console.log("control",control)
           return ({
             key: dataKey,       // Use dataKey as key
             label: <Flex gap={10}>
             <img src={dragDropIcon} alt="drag and drop icon" className="draggable-icon" />
             {controlObject.control_name}
             </Flex>, // Use controlName as label
-            children: <ComponentRender controlObject={controlObject} />,
+            children: <ComponentRender controlObject={controlObject} initialData={control} />,
             tabKey: tabId,
           })
         });
 
         
         newCollapseItems.forEach(({tabKey,...newItem}) => {
-          console.log("newItem",newItem)
           dispatch(
             addCollapseItem({
               tabKey: tabKey,
