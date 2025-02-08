@@ -25,29 +25,27 @@ const RightSidebar = () => {
 
   const submitResponse = () => {
     dispatch(submitForm())
-    setTimeout(() => {
-      if (!selectedWidgetId) {
-        console.error("No widget selected!");
-        return;
-      }
-      const widgetData = {
-        description: "A custom Elementor heading widget with advanced styling options",
-        markup: codeData?.HTML,
-        icon: "",
-        controls: formData,
-        settings: {
-          title: widgetDetails[selectedWidgetId]?.settings.title,
-          description: widgetDetails[selectedWidgetId]?.settings.description,
-          icon: widgetDetails[selectedWidgetId]?.settings.icon,
-          category: widgetDetails[selectedWidgetId]?.settings.category,
-        },
-        css: codeData?.CSS,
-        js: codeData?.JS,
-      };
-      
-      console.log("widgetDetails",widgetDetails[selectedWidgetId]?.settings,widgetData)
-      dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));// Step 2: Dispatch storing the widget
-    }, 500); 
+    if (!selectedWidgetId) {
+      console.error("No widget selected!");
+      return;
+    }
+    const widgetData = {
+      description: "A custom Elementor heading widget with advanced styling options",
+      markup: codeData?.HTML,
+      icon: "",
+      controls: formData,
+      settings: {
+        title: widgetDetails[selectedWidgetId]?.settings.title,
+        description: widgetDetails[selectedWidgetId]?.settings.description,
+        icon: widgetDetails[selectedWidgetId]?.settings.icon,
+        category: widgetDetails[selectedWidgetId]?.settings.category,
+      },
+      css: codeData?.CSS,
+      js: codeData?.JS,
+    };
+    
+    console.log("widgetDetails",widgetDetails[selectedWidgetId]?.settings,widgetData)
+    dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));
   }
   
 

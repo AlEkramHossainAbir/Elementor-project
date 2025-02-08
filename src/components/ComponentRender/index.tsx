@@ -47,6 +47,8 @@ const ComponentRender = ({ controlObject, initialData }: { controlObject: Contro
   }, [dispatch, form]);
 
   const onFinish = (values: FormData[]) => {
+    const x = form.getFieldsValue()
+    console.log("all values",x)
     dispatch(
       updateFormData({
         controlName: selectedController,
