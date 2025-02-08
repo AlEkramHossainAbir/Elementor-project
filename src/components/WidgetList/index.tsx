@@ -100,7 +100,7 @@ const WidgetList: React.FC = () => {
             key: dataKey,       // Use dataKey as key
             label: <Flex gap={10}>
             <img src={dragDropIcon} alt="drag and drop icon" className="draggable-icon" />
-            {controlObject.control_name}
+            {controlObject?.control_name || ""}
             </Flex>, // Use controlName as label
             children: <ComponentRender controlObject={controlObject} initialData={control} />,
             tabKey: tabId,

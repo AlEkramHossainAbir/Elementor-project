@@ -18,7 +18,8 @@ const RightSidebar = () => {
   const codeData = useSelector((state:RootState) => state.code.codeByTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
   const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
-
+  const currentCollapseItems = useSelector((state: RootState) => state.controller.currentCollapseItems);
+ 
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
@@ -29,11 +30,23 @@ const RightSidebar = () => {
       console.error("No widget selected!");
       return;
     }
+ console.log("currentCollapseItems",currentCollapseItems,Object.keys(formData).length)
+ const extractedData = {};
+
+Object.values(currentCollapseItems).flat().forEach(item => {
+    const { dataKey, controlName, tabId } = item?.children?.props?.initialData || {};
+    if (dataKey) {
+        extractedData[dataKey] = { controlName, tabId, dataKey };
+    }
+});
+  const attachedObjectdata = {...extractedData,...formData}
+
+console.log("extractedData",extractedData,formData,attachedObjectdata);
     const widgetData = {
       description: "A custom Elementor heading widget with advanced styling options",
       markup: codeData?.HTML,
       icon: "",
-      controls: formData,
+      controls: attachedObjectdata ,
       settings: {
         title: widgetDetails[selectedWidgetId]?.settings.title,
         description: widgetDetails[selectedWidgetId]?.settings.description,
