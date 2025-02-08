@@ -27,10 +27,26 @@ const collapseSlice = createSlice({
       action
     ) => {
       const { tabKey, newItem } = action.payload;
-
+      console.log("Collapse", newItem);
+    
+      // Get the current items for the tabKey
+      const currentItems = state.currentCollapseItems[tabKey] || [];
+    
+      // Check if an item with the same key already exists
+      const itemIndex = currentItems.findIndex(item => item.key === newItem.key);
+    
+      if (itemIndex !== -1) {
+        // Replace the existing item
+        currentItems[itemIndex] = newItem;
+      } else {
+        // Add the new item
+        currentItems.push(newItem);
+      }
+     console.log(tabKey)
+      // Update the state
       state.currentCollapseItems = {
         ...state.currentCollapseItems,
-        [tabKey]: [...(state.currentCollapseItems[tabKey] || []), newItem],
+        [tabKey]: currentItems,
       };
     },
     removeCollapseItem: (state, action: PayloadAction<{ tabKey: string; itemKey: string }>) => {

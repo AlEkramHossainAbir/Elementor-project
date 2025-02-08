@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select } from "antd";
+import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select, Flex } from "antd";
 import { RootState,AppDispatch} from "../../redux/store";
 import { addWidget, fetchWidgetDetails, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
 import { openModal } from "../../redux/widgetModalSlice";
@@ -8,6 +8,9 @@ import "./style.css"
 import editIcon from "./../../assets/svgs/edit-pen.svg";
 import settingIcon from "./../../assets/svgs/setting-wheel.svg";
 import bucketIcon from "./../../assets/svgs/bucket.svg";
+import dragDropIcon from "./../../assets/svgs/drag&drop.svg";
+
+import { addCollapseItem } from "../../redux/controllerSlice";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -23,7 +26,6 @@ const WidgetList: React.FC = () => {
 
   const handleToggle = (id: number, currentStatus: boolean) => {
     const newState = !currentStatus;
-    console.log(newState)
     dispatch(toggleWidgetStatus({ widgetId: id, isActive: newState }));
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,11 +56,36 @@ const WidgetList: React.FC = () => {
   const openDetailsModal = (widgetId: number) => {
     if (widgetId) {
       dispatch(fetchWidgetDetails(widgetId))
-      .then(response=> console.log(response.payload))
+      .then(response=> {
+        const controls = response.payload?.details?.controls || {};
+
+        // Convert controls object into an array of newCollapseItem objects
+        const newCollapseItems = Object.values(controls).map(({ dataKey, controlName, tabId }) => {
+          console.log(dataKey, controlName, tabId)
+          return ({
+            key: dataKey,       // Use dataKey as key
+            label: <Flex gap={10}>
+            <img src={dragDropIcon} alt="drag and drop icon" className="draggable-icon" />
+            {controlName}
+            </Flex>, // Use controlName as label
+            children: "SDKFJSDJKFH",
+            tabKey: tabId,
+          })
+        });
+
+        
+        newCollapseItems.forEach(({tabKey,...newItem}) => {
+          console.log("newItem",newItem)
+          dispatch(
+            addCollapseItem({
+              tabKey: tabKey,
+              newItem, // Dispatch individual object
+            })
+          );
+        });
+      })
     }
     dispatch(openModal(widgetId));
-    // setSelectedWidgetId(widgetId);
-    // dispatch(fetchWidgetDetails(widgetId));
   };
 
 
