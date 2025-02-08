@@ -9,21 +9,43 @@ import editIcon from "./../../assets/svgs/edit-pen.svg";
 import settingIcon from "./../../assets/svgs/setting-wheel.svg";
 import bucketIcon from "./../../assets/svgs/bucket.svg";
 import dragDropIcon from "./../../assets/svgs/drag&drop.svg";
+import controllerDataJson from "./../../assets/controller.json";
 
 import { addCollapseItem } from "../../redux/controllerSlice";
+import ComponentRender from "../ComponentRender";
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
+type ControlField = {
+  name: string;
+  type: string;
+  default?: string | boolean | number;
+  options?: Record<string, string>;
+};
 
-interface Control {
+type Control = {
+  type: string;
+  control_name: string;
+  has_selector?: boolean;
+  has_selectors?: boolean;
+  control_category: string;
+  fields: ControlField[];
+};
+
+type ControllerData = Record<string, Control>;
+
+const controllerData = controllerDataJson as ControllerData;
+
+
+interface ControlWidget {
   dataKey: string;
   controlName: string;
   tabId: string;
 }
 
 interface WidgetDetails {
-  controls: Record<string, Control>;
+  controls: Record<string, ControlWidget>;
 }
 
 interface WidgetResponse {
@@ -78,14 +100,14 @@ const WidgetList: React.FC = () => {
 
         // Convert controls object into an array of newCollapseItem objects
         const newCollapseItems = Object.values(controls).map(({ dataKey, controlName, tabId }) => {
-          console.log(dataKey, controlName, tabId)
+          const controlObject = controllerData[controlName];
           return ({
             key: dataKey,       // Use dataKey as key
             label: <Flex gap={10}>
             <img src={dragDropIcon} alt="drag and drop icon" className="draggable-icon" />
-            {controlName}
+            {controlObject.control_name}
             </Flex>, // Use controlName as label
-            children: "SDKFJSDJKFH",
+            children: <ComponentRender controlObject={controlObject} />,
             tabKey: tabId,
           })
         });
