@@ -15,6 +15,23 @@ import { addCollapseItem } from "../../redux/controllerSlice";
 const { Title } = Typography;
 const { TextArea } = Input;
 
+
+interface Control {
+  dataKey: string;
+  controlName: string;
+  tabId: string;
+}
+
+interface WidgetDetails {
+  controls: Record<string, Control>;
+}
+
+interface WidgetResponse {
+  payload: {
+    details?: WidgetDetails;
+  };
+}
+
 const WidgetList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { widgets, status } = useSelector((state: RootState) => state.widgets);
@@ -56,8 +73,8 @@ const WidgetList: React.FC = () => {
   const openDetailsModal = (widgetId: number) => {
     if (widgetId) {
       dispatch(fetchWidgetDetails(widgetId))
-      .then(response=> {
-        const controls = response.payload?.details?.controls || {};
+      .then((response: unknown)=> {
+        const controls = (response as WidgetResponse).payload?.details?.controls || {};
 
         // Convert controls object into an array of newCollapseItem objects
         const newCollapseItems = Object.values(controls).map(({ dataKey, controlName, tabId }) => {
