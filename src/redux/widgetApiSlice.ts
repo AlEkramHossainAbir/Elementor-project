@@ -155,7 +155,17 @@ const widgetSlice = createSlice({
         if (widget) widget.isActive = isActive;
       })
       .addCase(storeWidget.fulfilled, (state, action) => {
-        state.widgets.push(action.payload);
+      
+        // Find the index of the existing widget
+        const index = state.widgets.findIndex((w) => w.id === action.payload.id);
+      
+        if (index !== -1) {
+          // If widget exists, replace it
+          state.widgets[index] = action.payload;
+        } else {
+          // If widget does not exist, push new data
+          state.widgets.push(action.payload);
+        }
       })
       .addCase(storeWidget.rejected, (state, action) => {
         state.error = action.payload as string;

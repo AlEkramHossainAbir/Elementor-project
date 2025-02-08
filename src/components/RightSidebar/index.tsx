@@ -10,7 +10,6 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { submitForm } from "../../redux/formInstanceSlice";
-import { useEffect } from "react";
 import { storeWidget } from "../../redux/widgetApiSlice";
 
 const RightSidebar = () => {
@@ -19,8 +18,6 @@ const RightSidebar = () => {
   const codeData = useSelector((state:RootState) => state.code.codeByTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
   const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
-
-  console.log(selectedWidgetId && widgetDetails[selectedWidgetId])
 
   const onChange = (key: string | string[]) => {
     console.log(key);
@@ -39,14 +36,16 @@ const RightSidebar = () => {
         icon: "",
         controls: formData,
         settings: {
-          title: formData.title ?? "Default Heading",
-          description: formData.description ?? "Default description text",
-          icon: formData.icon ?? "",
-          category: formData.category ?? "",
+          title: widgetDetails[selectedWidgetId]?.settings.title,
+          description: widgetDetails[selectedWidgetId]?.settings.description,
+          icon: widgetDetails[selectedWidgetId]?.settings.icon,
+          category: widgetDetails[selectedWidgetId]?.settings.category,
         },
         css: codeData?.CSS,
         js: codeData?.JS,
       };
+      
+      console.log("widgetDetails",widgetDetails[selectedWidgetId]?.settings,widgetData)
       dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));// Step 2: Dispatch storing the widget
     }, 500); 
   }
