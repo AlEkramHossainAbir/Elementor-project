@@ -47,6 +47,7 @@ const ComponentRender = ({ controlObject, initialData }: { controlObject: Contro
   }, [dispatch, form]);
 
   const onFinish = (values: FormData[]) => {
+    console.log("form values",values)
     dispatch(
       updateFormData({
         controlName: selectedController,
@@ -91,7 +92,7 @@ const ComponentRender = ({ controlObject, initialData }: { controlObject: Contro
         </Form.Item>
         </Col>
         </Row>
-        {controlObject.fields.map((field, index) => (
+        {controlObject?.fields.map((field, index) => (
           <GetElement field={field} key={index} />
         ))}
       </Form>
