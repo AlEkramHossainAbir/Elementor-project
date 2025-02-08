@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Card, Button, Row, Col, Switch, Typography, Modal, Form, Input, Select } from "antd";
 import { RootState,AppDispatch} from "../../redux/store";
-import { addWidget, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
+import { addWidget, fetchWidgetDetails, fetchWidgets, toggleWidgetStatus } from "../../redux/widgetApiSlice";
 import { openModal } from "../../redux/widgetModalSlice";
 import "./style.css"
 import editIcon from "./../../assets/svgs/edit-pen.svg";
@@ -52,6 +52,10 @@ const WidgetList: React.FC = () => {
   };
 
   const openDetailsModal = (widgetId: number) => {
+    if (widgetId) {
+      dispatch(fetchWidgetDetails(widgetId))
+      .then(response=> console.log(response.payload))
+    }
     dispatch(openModal(widgetId));
     // setSelectedWidgetId(widgetId);
     // dispatch(fetchWidgetDetails(widgetId));
