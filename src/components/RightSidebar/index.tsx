@@ -30,18 +30,18 @@ const RightSidebar = () => {
       console.error("No widget selected!");
       return;
     }
- console.log("currentCollapseItems",currentCollapseItems,Object.keys(formData).length)
+
  const extractedData = {};
 
-Object.values(currentCollapseItems).flat().forEach(item => {
-    const { dataKey, controlName, tabId } = item?.children?.props?.initialData || {};
-    if (dataKey) {
-        extractedData[dataKey] = { controlName, tabId, dataKey };
-    }
-});
+    Object.values(currentCollapseItems).flat().forEach(item => {
+        const { dataKey, controlName, tabId } = item?.children?.props?.initialData || {};
+        if (dataKey) {
+            extractedData[dataKey] = { controlName, tabId, dataKey };
+        }
+    });
   const attachedObjectdata = {...extractedData,...formData}
 
-console.log("extractedData",extractedData,formData,attachedObjectdata);
+
     const widgetData = {
       description: "A custom Elementor heading widget with advanced styling options",
       markup: codeData?.HTML,
@@ -57,7 +57,7 @@ console.log("extractedData",extractedData,formData,attachedObjectdata);
       js: codeData?.JS,
     };
     
-    console.log("widgetDetails",widgetDetails[selectedWidgetId]?.settings,widgetData)
+
     dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));
   }
   
