@@ -45,7 +45,7 @@ const collapseSlice = createSlice({
       // Update the state
       state.currentCollapseItems = {
         ...state.currentCollapseItems,
-        [tabKey]: [...(state.currentCollapseItems[tabKey] || []), newItem],
+        [tabKey]: currentItems,
       };
     },
     removeCollapseItem: (state, action: PayloadAction<{ tabKey: string; itemKey: string }>) => {

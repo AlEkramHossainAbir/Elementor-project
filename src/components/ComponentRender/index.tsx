@@ -16,7 +16,7 @@ type ControlField = {
 type Control = {
   fields: ControlField[];
 };
-interface FormData {
+export interface FormData {
   [key: string]: string;
 }
 
@@ -109,7 +109,9 @@ const ComponentRender = ({
               .replace(/[^a-z0-9_]/g, "");
             form.setFieldsValue({ dataKey: sanitizedValue }); // Update form state
           }
-        }}
+          
+         
+          }}
         initialValues={initialData}
         layout="horizontal"
         {...dynamicProps}
@@ -129,7 +131,7 @@ const ComponentRender = ({
             </Form.Item>
           </Col>
         </Row>
-        {controlObject.fields.map((field, index) => (
+        {controlObject?.fields.map((field, index) => (
           <GetElement field={field} key={index} />
         ))}
       </Form>
