@@ -10,44 +10,19 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { submitForm } from "../../redux/formInstanceSlice";
-import { storeWidget } from "../../redux/widgetApiSlice";
 
 const RightSidebar = () => {
   const dispatch = useDispatch<AppDispatch>()
-  const formData = useSelector((state:RootState) => state.formData);
-  const codeData = useSelector((state:RootState) => state.code.codeByTab);
   const { widgetDetails } = useSelector((state: RootState) => state.widgets);
   const {selectedWidgetId} = useSelector((state: RootState) => state.widgetModal)
-
+  
+ 
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
 
   const submitResponse = () => {
     dispatch(submitForm())
-    setTimeout(() => {
-      if (!selectedWidgetId) {
-        console.error("No widget selected!");
-        return;
-      }
-      const widgetData = {
-        description: "A custom Elementor heading widget with advanced styling options",
-        markup: codeData?.HTML,
-        icon: "",
-        controls: formData,
-        settings: {
-          title: widgetDetails[selectedWidgetId]?.settings.title,
-          description: widgetDetails[selectedWidgetId]?.settings.description,
-          icon: widgetDetails[selectedWidgetId]?.settings.icon,
-          category: widgetDetails[selectedWidgetId]?.settings.category,
-        },
-        css: codeData?.CSS,
-        js: codeData?.JS,
-      };
-      
-      console.log("widgetDetails",widgetDetails[selectedWidgetId]?.settings,widgetData)
-      dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));// Step 2: Dispatch storing the widget
-    }, 500); 
   }
   
 
