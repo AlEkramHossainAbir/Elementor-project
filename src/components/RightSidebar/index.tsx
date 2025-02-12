@@ -26,39 +26,39 @@ const RightSidebar = () => {
 
   const submitResponse = () => {
     dispatch(submitForm())
-    if (!selectedWidgetId) {
-      console.error("No widget selected!");
-      return;
-    }
+//     if (!selectedWidgetId) {
+//       console.error("No widget selected!");
+//       return;
+//     }
 
- const extractedData = {};
+//  const extractedData = {};
 
-    Object.values(currentCollapseItems).flat().forEach(item => {
-        const { dataKey, controlName, tabId } = item?.children?.props?.initialData || {};
-        if (dataKey) {
-            extractedData[dataKey] = { controlName, tabId, dataKey };
-        }
-    });
-  const attachedObjectdata = {...extractedData,...formData}
+//     Object.values(currentCollapseItems).flat().forEach(item => {
+//         const { dataKey, controlName, tabId } = item?.children?.props?.initialData || {};
+//         if (dataKey) {
+//             extractedData[dataKey] = { controlName, tabId, dataKey };
+//         }
+//     });
+//   const attachedObjectdata = {...extractedData,...formData}
 
 
-    const widgetData = {
-      description: "A custom Elementor heading widget with advanced styling options",
-      markup: codeData?.HTML,
-      icon: "",
-      controls: attachedObjectdata ,
-      settings: {
-        title: widgetDetails[selectedWidgetId]?.settings.title,
-        description: widgetDetails[selectedWidgetId]?.settings.description,
-        icon: widgetDetails[selectedWidgetId]?.settings.icon,
-        category: widgetDetails[selectedWidgetId]?.settings.category,
-      },
-      css: codeData?.CSS,
-      js: codeData?.JS,
-    };
+//     const widgetData = {
+//       description: "A custom Elementor heading widget with advanced styling options",
+//       markup: codeData?.HTML,
+//       icon: "",
+//       controls: attachedObjectdata ,
+//       settings: {
+//         title: widgetDetails[selectedWidgetId]?.settings.title,
+//         description: widgetDetails[selectedWidgetId]?.settings.description,
+//         icon: widgetDetails[selectedWidgetId]?.settings.icon,
+//         category: widgetDetails[selectedWidgetId]?.settings.category,
+//       },
+//       css: codeData?.CSS,
+//       js: codeData?.JS,
+//     };
     
 
-    dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));
+//     dispatch(storeWidget({ widgetId: selectedWidgetId, widgetData }));
   }
   
 

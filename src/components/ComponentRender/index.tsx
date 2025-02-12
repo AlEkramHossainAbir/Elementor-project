@@ -48,14 +48,14 @@ const ComponentRender = ({ controlObject, initialData }: { controlObject: Contro
 
   const onFinish = (values: FormData[]) => {
     console.log("form values",values)
-    dispatch(
-      updateFormData({
-        controlName: selectedController,
-        tabId: activeTabKey,
-        dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
-        ...values, // Include other dynamic fields
-      })
-    );
+    // dispatch(
+    //   updateFormData({
+    //     controlName: selectedController,
+    //     tabId: activeTabKey,
+    //     dataKey: form.getFieldValue("dataKey"), // Get updated dataKey value
+    //     ...values, // Include other dynamic fields
+    //   })
+    // );
   };
 
   return (
